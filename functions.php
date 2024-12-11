@@ -140,13 +140,6 @@ function blaze_theme_register_required_plugins() {
             'force_deactivation' => false,
         ],
         [
-            'name'               => 'Back In Stock Notifier for WooCommerce | WooCommerce Waitlist Pro',
-            'slug'               => 'back-in-stock-notifier-for-woocommerce',
-            'required'           => false,
-            'force_activation'   => false,
-            'force_deactivation' => false,
-        ],
-        [
             'name'               => 'Blaze Commerce Checkout',
             'slug'               => 'blaze-online-checkout',
             'source'             => get_stylesheet_directory() . '/plugins/blaze-commerce-checkout-main.zip',
