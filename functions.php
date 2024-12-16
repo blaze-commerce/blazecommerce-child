@@ -256,6 +256,8 @@ function blaze_theme_register_required_plugins() {
         [
             'name'               => 'Gravity Forms',
             'slug'               => 'gravityforms',
+            'source'             => get_stylesheet_directory() . '/plugins/gravityforms.zip',
+            'version'            => '2.9.1',
         ],
     ];
 
