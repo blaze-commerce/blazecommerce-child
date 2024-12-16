@@ -247,6 +247,16 @@ function blaze_theme_register_required_plugins() {
             'name'               => 'Yotpo Social Reviews for Woocommerce',
             'slug'               => 'yotpo-social-reviews-for-woocommerce',
         ],
+        [
+            'name'               => 'WooGraphQL Pro',
+            'slug'               => 'woographql-pro',
+            'source'             => get_stylesheet_directory() . '/plugins/woographql-pro-v1.5.0.zip',
+            'version'            => '1.5.0',
+        ],
+        [
+            'name'               => 'Gravity Forms',
+            'slug'               => 'gravityforms',
+        ],
     ];
 
     $config = [
