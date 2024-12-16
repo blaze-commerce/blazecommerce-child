@@ -260,6 +260,10 @@ function blaze_theme_register_required_plugins() {
             'source'             => get_stylesheet_directory() . '/plugins/gravityforms.zip',
             'version'            => '2.9.1',
         ],
+        [
+            'name'               => 'Variation Swatches for WooCommerce',
+            'slug'               => 'woo-variation-swatches',
+        ],
     ];
 
     $config = [
