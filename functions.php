@@ -251,6 +251,7 @@ function blaze_theme_register_required_plugins() {
             'name'               => 'WooGraphQL Pro',
             'slug'               => 'woographql-pro',
             'source'             => get_stylesheet_directory() . '/plugins/woographql-pro-v1.5.0.zip',
+            'required'           => true,
             'version'            => '1.5.0',
         ],
         [
