@@ -124,10 +124,7 @@ function blaze_theme_register_required_plugins() {
             'name'               => 'Aelia Foundation Classes for WooCommerce',
             'slug'               => 'wc-aelia-foundation-classes',
             'source'             => get_stylesheet_directory() . '/plugins/wc-aelia-foundation-classes.zip',
-            'required'           => true,
             'version'            => '2.6.2.241202',
-            'force_activation'   => true,
-            'force_deactivation' => true,
         ],
         [
             'name'               => 'Advanced Flat Rate Shipping For WooCommerce Market',
@@ -197,10 +194,7 @@ function blaze_theme_register_required_plugins() {
             'name'               => 'Aelia Currency Switcher for WooCommerce',
             'slug'               => 'woocommerce-aelia-currencyswitcher',
             'source'             => get_stylesheet_directory() . '/plugins/woocommerce-aelia-currencyswitcher.zip',
-            'required'           => true,
             'version'            => '5.2.0.241007',
-            'force_activation'   => true,
-            'force_deactivation' => true,
         ],
         [
             'name'               => 'WooCommerce Checkout Field Editor',
