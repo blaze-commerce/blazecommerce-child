@@ -45,6 +45,16 @@
           "slug": "secondary-foreground"
         },
         {
+          "color": "#1F252D",
+          "name": "accent",
+          "slug": "accent"
+        },
+        {
+          "color": "#ffffff",
+          "name": "accent-foreground",
+          "slug": "accent-foreground"
+        },
+        {
           "color": "#E3E4E5",
           "name": "border",
           "slug": "border"
