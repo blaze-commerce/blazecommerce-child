@@ -44,15 +44,14 @@ function blaze_theme_register_required_plugins() {
             'name'     => 'WooCommerce',
             'slug'     => 'woocommerce',
             'required' => true,
+            'force_activation'   => true,
+            'force_deactivation' => true,
         ],
         [
             'name'               => 'Blaze Commerce',
             'slug'               => 'blazecommerce-wp-plugin-main',
-            'source'             => 'https://blazecommercechildthemeplugins.s3.us-east-2.amazonaws.com/blazecommerce-wp-plugin-main.zip',
+            'source'             => 'https://github.com/blaze-commerce/blazecommerce-wp-plugin/archive/refs/heads/main.zip',
             'required'           => true,
-            'version'            => '1.5.1',
-            'force_activation'   => true,
-            'force_deactivation' => true,
         ],
         [
             'name'               => 'Blaze Commerce Checkout',
@@ -104,6 +103,7 @@ function blaze_theme_register_required_plugins() {
         [
             'name'     => 'Yoast SEO',
             'slug'     => 'wordpress-seo',
+            'required' => true,
         ],
         [
             'name'     => 'Judge.me Product Reviews for WooCommerce',
@@ -154,6 +154,7 @@ function blaze_theme_register_required_plugins() {
             'slug'               => 'wordpress-seo-premium',
             'source'             => 'https://blazecommercechildthemeplugins.s3.us-east-2.amazonaws.com/wordpress-seo-premium.zip',
             'version'            => '24.0',
+            'required' => true,
         ],
         [
             'name'               => 'Yoast SEO: WooCommerce',
