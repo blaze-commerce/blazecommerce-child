@@ -1,17 +1,15 @@
 <?php
 /**
  * Title: home
- * Slug: twentytwentyfour/home
+ * Slug: blazecommerce-child/home
  * Inserter: no
  */
 ?>
-<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
-
 <!-- wp:group {"tagName":"main","style":{"spacing":{"blockGap":"0","margin":{"top":"0"}}},"layout":{"type":"default"}} -->
 <main class="wp-block-group" style="margin-top:0"><!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}}},"layout":{"type":"constrained","contentSize":"","wideSize":""}} -->
 <div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"style":{"spacing":{"blockGap":"0px"}},"layout":{"type":"constrained","contentSize":"565px"}} -->
 <div class="wp-block-group"><!-- wp:heading {"textAlign":"center","level":1,"fontSize":"x-large"} -->
-<h1 class="wp-block-heading has-text-align-center has-x-large-font-size" id="h-a-commitment-to-innovation-and-sustainability"><?php esc_html_e('A commitment to innovation and sustainability', 'twentytwentyfour');?></h1>
+<h1 class="wp-block-heading has-text-align-center has-x-large-font-size" id="h-a-commitment-to-innovation-and-sustainability">A commitment to innovation and sustainability</h1>
 <!-- /wp:heading -->
 
 <!-- wp:spacer {"height":"1.25rem"} -->
@@ -19,7 +17,7 @@
 <!-- /wp:spacer -->
 
 <!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center"><?php esc_html_e('Études is a pioneering firm that seamlessly merges creativity and functionality to redefine architectural excellence.', 'twentytwentyfour');?></p>
+<p class="has-text-align-center">Études is a pioneering firm that seamlessly merges creativity and functionality to redefine architectural excellence.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":"1.25rem"} -->
@@ -28,7 +26,7 @@
 
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button"><?php esc_html_e('About us', 'twentytwentyfour');?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">About us</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->
@@ -38,14 +36,14 @@
 <!-- /wp:spacer -->
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"wide","className":"is-style-rounded"} -->
-<figure class="wp-block-image alignwide size-full is-style-rounded"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/building-exterior.webp" alt="<?php esc_attr_e('Building exterior in Toronto, Canada', 'twentytwentyfour');?>"/></figure>
+<figure class="wp-block-image alignwide size-full is-style-rounded"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/building-exterior.webp" alt="Building exterior in Toronto, Canada"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}}},"backgroundColor":"base-2","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull has-base-2-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"style":{"spacing":{"blockGap":"0px"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 <div class="wp-block-group"><!-- wp:heading {"textAlign":"center","className":"is-style-asterisk"} -->
-<h2 class="wp-block-heading has-text-align-center is-style-asterisk" id="h-a-passion-for-creating-spaces"><?php esc_html_e('A passion for creating spaces', 'twentytwentyfour');?></h2>
+<h2 class="wp-block-heading has-text-align-center is-style-asterisk" id="h-a-passion-for-creating-spaces">A passion for creating spaces</h2>
 <!-- /wp:heading -->
 
 <!-- wp:spacer {"height":"0px","style":{"layout":{"flexSize":"1.25rem","selfStretch":"fixed"}}} -->
@@ -53,7 +51,7 @@
 <!-- /wp:spacer -->
 
 <!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center"><?php esc_html_e('Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers.', 'twentytwentyfour');?></p>
+<p class="has-text-align-center">Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -64,31 +62,31 @@
 <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|30","left":"var:preset|spacing|40"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}}} -->
 <div class="wp-block-column"><!-- wp:heading {"textAlign":"left","level":3,"className":"is-style-asterisk","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"medium","fontFamily":"body"} -->
-<h3 class="wp-block-heading has-text-align-left is-style-asterisk has-body-font-family has-medium-font-size" id="h-renovation-and-restoration" style="font-style:normal;font-weight:600"><?php esc_html_e('Renovation and restoration', 'twentytwentyfour');?></h3>
+<h3 class="wp-block-heading has-text-align-left is-style-asterisk has-body-font-family has-medium-font-size" id="h-renovation-and-restoration" style="font-style:normal;font-weight:600">Renovation and restoration</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"left"} -->
-<p class="has-text-align-left"><?php esc_html_e('Experience the fusion of imagination and expertise with Études Architectural Solutions.', 'twentytwentyfour');?></p>
+<p class="has-text-align-left">Experience the fusion of imagination and expertise with Études Architectural Solutions.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}}} -->
 <div class="wp-block-column"><!-- wp:heading {"textAlign":"left","level":3,"className":"is-style-asterisk","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"medium","fontFamily":"body"} -->
-<h3 class="wp-block-heading has-text-align-left is-style-asterisk has-body-font-family has-medium-font-size" id="h-continuous-support" style="font-style:normal;font-weight:600"><?php esc_html_e('Continuous Support', 'twentytwentyfour');?></h3>
+<h3 class="wp-block-heading has-text-align-left is-style-asterisk has-body-font-family has-medium-font-size" id="h-continuous-support" style="font-style:normal;font-weight:600">Continuous Support</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"left"} -->
-<p class="has-text-align-left"><?php esc_html_e('Experience the fusion of imagination and expertise with Études Architectural Solutions.', 'twentytwentyfour');?></p>
+<p class="has-text-align-left">Experience the fusion of imagination and expertise with Études Architectural Solutions.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}}} -->
 <div class="wp-block-column"><!-- wp:heading {"textAlign":"left","level":3,"className":"is-style-asterisk","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"medium","fontFamily":"body"} -->
-<h3 class="wp-block-heading has-text-align-left is-style-asterisk has-body-font-family has-medium-font-size" id="h-app-access" style="font-style:normal;font-weight:600"><?php esc_html_e('App Access', 'twentytwentyfour');?></h3>
+<h3 class="wp-block-heading has-text-align-left is-style-asterisk has-body-font-family has-medium-font-size" id="h-app-access" style="font-style:normal;font-weight:600">App Access</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"left"} -->
-<p class="has-text-align-left"><?php esc_html_e('Experience the fusion of imagination and expertise with Études Architectural Solutions.', 'twentytwentyfour');?></p>
+<p class="has-text-align-left">Experience the fusion of imagination and expertise with Études Architectural Solutions.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
@@ -100,31 +98,31 @@
 <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|30","left":"var:preset|spacing|40"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}}} -->
 <div class="wp-block-column"><!-- wp:heading {"textAlign":"left","level":3,"className":"is-style-asterisk","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"medium","fontFamily":"body"} -->
-<h3 class="wp-block-heading has-text-align-left is-style-asterisk has-body-font-family has-medium-font-size" id="h-consulting" style="font-style:normal;font-weight:600"><?php esc_html_e('Consulting', 'twentytwentyfour');?></h3>
+<h3 class="wp-block-heading has-text-align-left is-style-asterisk has-body-font-family has-medium-font-size" id="h-consulting" style="font-style:normal;font-weight:600">Consulting</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"left"} -->
-<p class="has-text-align-left"><?php esc_html_e('Experience the fusion of imagination and expertise with Études Architectural Solutions.', 'twentytwentyfour');?></p>
+<p class="has-text-align-left">Experience the fusion of imagination and expertise with Études Architectural Solutions.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}}} -->
 <div class="wp-block-column"><!-- wp:heading {"textAlign":"left","level":3,"className":"is-style-asterisk","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"medium","fontFamily":"body"} -->
-<h3 class="wp-block-heading has-text-align-left is-style-asterisk has-body-font-family has-medium-font-size" id="h-project-management" style="font-style:normal;font-weight:600"><?php esc_html_e('Project Management', 'twentytwentyfour');?></h3>
+<h3 class="wp-block-heading has-text-align-left is-style-asterisk has-body-font-family has-medium-font-size" id="h-project-management" style="font-style:normal;font-weight:600">Project Management</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"left"} -->
-<p class="has-text-align-left"><?php esc_html_e('Experience the fusion of imagination and expertise with Études Architectural Solutions.', 'twentytwentyfour');?></p>
+<p class="has-text-align-left">Experience the fusion of imagination and expertise with Études Architectural Solutions.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}}} -->
 <div class="wp-block-column"><!-- wp:heading {"textAlign":"left","level":3,"className":"is-style-asterisk","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"medium","fontFamily":"body"} -->
-<h3 class="wp-block-heading has-text-align-left is-style-asterisk has-body-font-family has-medium-font-size" id="h-architectural-solutions" style="font-style:normal;font-weight:600"><?php esc_html_e('Architectural Solutions', 'twentytwentyfour');?></h3>
+<h3 class="wp-block-heading has-text-align-left is-style-asterisk has-body-font-family has-medium-font-size" id="h-architectural-solutions" style="font-style:normal;font-weight:600">Architectural Solutions</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"left"} -->
-<p class="has-text-align-left"><?php esc_html_e('Experience the fusion of imagination and expertise with Études Architectural Solutions.', 'twentytwentyfour');?></p>
+<p class="has-text-align-left">Experience the fusion of imagination and expertise with Études Architectural Solutions.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
@@ -134,11 +132,11 @@
 <div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 <div class="wp-block-group"><!-- wp:heading {"textAlign":"center","className":"is-style-asterisk"} -->
-<h2 class="wp-block-heading has-text-align-center is-style-asterisk" id="h-an-array-of-resources"><?php esc_html_e('An array of resources', 'twentytwentyfour');?></h2>
+<h2 class="wp-block-heading has-text-align-center is-style-asterisk" id="h-an-array-of-resources">An array of resources</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center","style":{"layout":{"selfStretch":"fit","flexSize":null}}} -->
-<p class="has-text-align-center"><?php esc_html_e('Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers.', 'twentytwentyfour');?></p>
+<p class="has-text-align-center">Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -149,27 +147,27 @@
 <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|50","left":"var:preset|spacing|60"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"verticalAlignment":"center","width":"40%"} -->
 <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:40%"><!-- wp:heading {"level":3,"className":"is-style-asterisk"} -->
-<h3 class="wp-block-heading is-style-asterisk" id="h-etudes-architect-app"><?php esc_html_e('Études Architect App', 'twentytwentyfour');?></h3>
+<h3 class="wp-block-heading is-style-asterisk" id="h-etudes-architect-app">Études Architect App</h3>
 <!-- /wp:heading -->
 
 <!-- wp:list {"className":"is-style-checkmark-list","style":{"typography":{"lineHeight":"1.75"}}} -->
 <ul style="line-height:1.75" class="wp-block-list is-style-checkmark-list"><!-- wp:list-item -->
-<li><?php esc_html_e('Collaborate with fellow architects.', 'twentytwentyfour');?></li>
+<li>Collaborate with fellow architects.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><?php esc_html_e('Showcase your projects.', 'twentytwentyfour');?></li>
+<li>Showcase your projects.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><?php esc_html_e('Experience the world of architecture.', 'twentytwentyfour');?></li>
+<li>Experience the world of architecture.</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"50%"} -->
 <div class="wp-block-column" style="flex-basis:50%"><!-- wp:image {"sizeSlug":"large","linkDestination":"none","className":"is-style-rounded"} -->
-<figure class="wp-block-image size-large is-style-rounded"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/tourist-and-building.webp" alt="<?php esc_attr_e('Tourist taking photo of a building', 'twentytwentyfour');?>"/></figure>
+<figure class="wp-block-image size-large is-style-rounded"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/tourist-and-building.webp" alt="Tourist taking photo of a building"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
@@ -181,26 +179,26 @@
 <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|50","left":"var:preset|spacing|60"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"50%"} -->
 <div class="wp-block-column" style="flex-basis:50%"><!-- wp:image {"sizeSlug":"large","linkDestination":"none","className":"is-style-rounded"} -->
-<figure class="wp-block-image size-large is-style-rounded"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/windows.webp" alt="<?php esc_attr_e('Windows of a building in Nuremberg, Germany', 'twentytwentyfour');?>"/></figure>
+<figure class="wp-block-image size-large is-style-rounded"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/windows.webp" alt="Windows of a building in Nuremberg, Germany"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"verticalAlignment":"center","width":"40%"} -->
 <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:40%"><!-- wp:heading {"level":3,"className":"is-style-asterisk"} -->
-<h3 class="wp-block-heading is-style-asterisk" id="h-etudes-newsletter"><?php esc_html_e('Études Newsletter', 'twentytwentyfour');?></h3>
+<h3 class="wp-block-heading is-style-asterisk" id="h-etudes-newsletter">Études Newsletter</h3>
 <!-- /wp:heading -->
 
 <!-- wp:list {"className":"is-style-checkmark-list","style":{"typography":{"lineHeight":"1.75"}}} -->
 <ul style="line-height:1.75" class="wp-block-list is-style-checkmark-list"><!-- wp:list-item -->
-<li><?php esc_html_e('A world of thought-provoking articles.', 'twentytwentyfour');?></li>
+<li>A world of thought-provoking articles.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><?php esc_html_e('Case studies that celebrate architecture.', 'twentytwentyfour');?></li>
+<li>Case studies that celebrate architecture.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><?php esc_html_e('Exclusive access to design insights.', 'twentytwentyfour');?></li>
+<li>Exclusive access to design insights.</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></div>
 <!-- /wp:column --></div>
@@ -226,11 +224,11 @@
 <!-- /wp:image -->
 
 <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|10","bottom":"0"}}}} -->
-<p class="has-text-align-center" style="margin-top:var(--wp--preset--spacing--10);margin-bottom:0"><?php esc_html_e('Annie Steiner', 'twentytwentyfour');?></p>
+<p class="has-text-align-center" style="margin-top:var(--wp--preset--spacing--10);margin-bottom:0">Annie Steiner</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"align":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"300"}},"textColor":"contrast-3","fontSize":"small"} -->
-<p class="has-text-align-center has-contrast-3-color has-text-color has-small-font-size" style="font-style:normal;font-weight:300"><?php esc_html_e('CEO, Greenprint', 'twentytwentyfour');?></p>
+<p class="has-text-align-center has-contrast-3-color has-text-color has-small-font-size" style="font-style:normal;font-weight:300">CEO, Greenprint</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
@@ -238,7 +236,7 @@
 
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><!-- wp:heading {"align":"wide","style":{"typography":{"lineHeight":"1"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|40"}}},"fontSize":"x-large"} -->
-<h2 class="wp-block-heading alignwide has-x-large-font-size" id="h-watch-read-listen" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40);line-height:1"><?php esc_html_e('Watch, Read, Listen', 'twentytwentyfour');?></h2>
+<h2 class="wp-block-heading alignwide has-x-large-font-size" id="h-watch-read-listen" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40);line-height:1">Watch, Read, Listen</h2>
 <!-- /wp:heading -->
 
 <!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
@@ -273,7 +271,7 @@
 
 <!-- wp:query-no-results -->
 <!-- wp:paragraph -->
-<p><?php esc_html_e('No posts were found.', 'twentytwentyfour');?></p>
+<p>No posts were found.</p>
 <!-- /wp:paragraph -->
 <!-- /wp:query-no-results --></div>
 <!-- /wp:query --></div>
@@ -287,16 +285,16 @@
 <!-- /wp:spacer -->
 
 <!-- wp:heading {"textAlign":"center","fontSize":"x-large"} -->
-<h2 class="wp-block-heading has-text-align-center has-x-large-font-size" id="h-join-900-subscribers"><?php esc_html_e('Join 900+ subscribers', 'twentytwentyfour');?></h2>
+<h2 class="wp-block-heading has-text-align-center has-x-large-font-size" id="h-join-900-subscribers">Join 900+ subscribers</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center"><?php esc_html_e('Stay in the loop with everything you need to know.', 'twentytwentyfour');?></p>
+<p class="has-text-align-center">Stay in the loop with everything you need to know.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button"><?php esc_html_e('Sign up', 'twentytwentyfour');?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Sign up</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
@@ -306,5 +304,3 @@
 <!-- /wp:group --></div>
 <!-- /wp:group --></main>
 <!-- /wp:group -->
-
-<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->
