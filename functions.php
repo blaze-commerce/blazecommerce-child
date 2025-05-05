@@ -116,6 +116,7 @@ function blaze_theme_register_required_plugins() {
         [
             'name'     => 'WindPress',
             'slug'     => 'windpress',
+            'required' => true,
         ],
         [
             'name'     => 'Gravity Forms',
