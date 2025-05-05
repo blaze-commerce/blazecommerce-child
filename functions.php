@@ -219,7 +219,7 @@ function blaze_theme_register_required_plugins() {
             'version'            => '7.2.1',
         ],
         [
-            'name'     => 'GenerateBlocks',
+            'name'     => 'GenerateBlocks Pro',
             'slug'     => 'generateblocks-pro',
             'source'             => 'https://blazecommerce.io/wp-content/blaze-commerce-plugins/generateblocks-pro.zip',
             'required' => true,
