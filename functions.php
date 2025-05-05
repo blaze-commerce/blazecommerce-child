@@ -45,7 +45,6 @@ function blaze_theme_register_required_plugins() {
             'slug'     => 'woocommerce',
             'required' => true,
             'force_activation'   => true,
-            'force_deactivation' => true,
         ],
         [
             'name'               => 'Blaze Commerce',
