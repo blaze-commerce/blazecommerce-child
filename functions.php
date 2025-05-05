@@ -58,16 +58,19 @@ function blaze_theme_register_required_plugins() {
             'slug'               => 'blaze-online-checkout',
             'source'             => 'https://github.com/blaze-commerce/blaze-commerce-checkout/archive/refs/heads/main.zip',
             'required'           => true,
+            'force_activation'   => true,
         ],
         [
             'name'     => 'Create Block Theme',
             'slug'     => 'create-block-theme',
             'required' => true,
+            'force_activation'   => true,
         ],
         [
             'name'     => 'The Icon Block',
             'slug'     => 'icon-block',
             'required' => true,
+            'force_activation'   => true,
         ],
         [
             'name'     => 'Gutenberg',
@@ -78,11 +81,13 @@ function blaze_theme_register_required_plugins() {
             'name'     => 'WPGraphQL',
             'slug'     => 'wp-graphql',
             'required' => true,
+            'force_activation'   => true,
         ],
         [
             'name'     => 'GenerateBlocks',
             'slug'     => 'generateblocks',
             'required' => true,
+            'force_activation'   => true,
         ],
         [
             'name'     => 'Back In Stock Notifier for WooCommerce',
@@ -96,6 +101,7 @@ function blaze_theme_register_required_plugins() {
             'name'     => 'Yoast SEO',
             'slug'     => 'wordpress-seo',
             'required' => true,
+            'force_activation'   => true,
         ],
         [
             'name'     => 'Judge.me Product Reviews for WooCommerce',
@@ -104,6 +110,8 @@ function blaze_theme_register_required_plugins() {
         [
             'name'     => 'YITH WooCommerce Wishlist',
             'slug'     => 'yith-woocommerce-wishlist',
+            'required' => true,
+            'force_activation'   => true,
         ],
         [
             'name'     => 'Yotpo Social Reviews for Woocommerce',
@@ -117,6 +125,7 @@ function blaze_theme_register_required_plugins() {
             'name'     => 'WindPress',
             'slug'     => 'windpress',
             'required' => true,
+            'force_activation'   => true,
         ],
         [
             'name'     => 'Gravity Forms',
@@ -156,6 +165,8 @@ function blaze_theme_register_required_plugins() {
             'slug'               => 'yoast-woo-seo',
             'source'             => 'https://blazecommerce.io/wp-content/blaze-commerce-plugins/wpseo-woocommerce.zip',
             'version'            => '16.4',
+            'required' => true,
+            'force_activation'   => true,
         ],
         [
             'name'               => 'WPGraphQL for Gravity Forms',
@@ -185,6 +196,7 @@ function blaze_theme_register_required_plugins() {
             'source'             => 'https://blazecommerce.io/wp-content/blaze-commerce-plugins/woographql-pro-v1.5.0.zip',
             'required'           => true,
             'version'            => '1.5.0',
+            'force_activation'   => true,
         ],
         [
             'name'               => 'WPGraphQL JWT Authentication',
@@ -223,6 +235,7 @@ function blaze_theme_register_required_plugins() {
             'slug'     => 'generateblocks-pro',
             'source'             => 'https://blazecommerce.io/wp-content/blaze-commerce-plugins/generateblocks-pro.zip',
             'required' => true,
+            'force_activation'   => true,
         ],
     ];
 
