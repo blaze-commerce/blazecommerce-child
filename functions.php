@@ -51,6 +51,7 @@ function blaze_theme_register_required_plugins() {
             'slug'               => 'blazecommerce-wp-plugin-main',
             'source'             => 'https://github.com/blaze-commerce/blazecommerce-wp-plugin/archive/refs/heads/main.zip',
             'required'           => true,
+            'force_deactivation'   => true,
         ],
         [
             'name'               => 'Blaze Commerce Checkout',
@@ -58,6 +59,7 @@ function blaze_theme_register_required_plugins() {
             'source'             => 'https://github.com/blaze-commerce/blaze-commerce-checkout/archive/refs/heads/main.zip',
             'required'           => true,
             'force_activation'   => true,
+            'force_deactivation'   => true,
         ],
         [
             'name'     => 'Create Block Theme',
@@ -74,7 +76,6 @@ function blaze_theme_register_required_plugins() {
         [
             'name'     => 'Gutenberg',
             'slug'     => 'gutenberg',
-            'required' => true,
         ],
         [
             'name'     => 'WPGraphQL',
@@ -158,6 +159,7 @@ function blaze_theme_register_required_plugins() {
             'source'             => 'https://blazecommerce.io/wp-content/blaze-commerce-plugins/wordpress-seo-premium.zip',
             'version'            => '24.0',
             'required' => true,
+            'force_activation'   => true,
         ],
         [
             'name'               => 'Yoast SEO: WooCommerce',
@@ -235,6 +237,11 @@ function blaze_theme_register_required_plugins() {
             'source'             => 'https://blazecommerce.io/wp-content/blaze-commerce-plugins/generateblocks-pro.zip',
             'required' => true,
             'force_activation'   => true,
+        ],
+        [
+            'name'     => 'Photo Reviews for WooCommerce',
+            'slug'     => 'woo-photo-reviews',
+            'source'   => 'https://blazecommerce.io/wp-content/blaze-commerce-plugins/woo-photo-reviews.zip',
         ],
     ];
 
