@@ -1,0 +1,61 @@
+<?php
+/**
+ * Template part for displaying posts
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package sul-theme
+ */
+
+?>
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<header class="entry-header display-block" >
+			<?php
+			if ( is_singular() ) :
+				the_title( '<h1 class="entry-title">', '</h1>' );
+			else :
+				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			endif;
+
+			if ( 'post' === get_post_type() ) :
+				?>
+				<div class="entry-meta">
+					<?php
+					sul_theme_posted_on();
+					sul_theme_entry_footer();
+					?>
+				</div><!-- .entry-meta -->
+			<?php endif; ?>
+		</header><!-- .entry-header -->
+
+		<?php sul_theme_post_thumbnail(); ?>
+
+		<div class="entry-content">
+
+<!-- dv made changes here on feb23 -->
+			<?php					
+				
+				
+				/* translators: %s: Name of current post. Only visible to screen readers */
+
+			the_content( sprintf(
+				wp_kses(
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'sul-theme' ),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
+				),
+				get_the_title()
+			) );
+
+			wp_link_pages( array(
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sul-theme' ),
+				'after'  => '</div>',
+			) );
+			?>
+
+		</div><!-- .entry-content -->
+	</article><!-- #post-<?php the_ID(); ?> -->
+	
