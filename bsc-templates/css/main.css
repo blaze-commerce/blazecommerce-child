@@ -1,0 +1,162 @@
+/* position */
+.pos-relative {
+    position: relative;
+
+}
+
+.pos-absolute {
+    position: absolute;
+}
+
+.pos-absolute-0 {
+    position: absolute;
+    inset: 0;
+}
+
+/* background */
+.background-black {
+	background-color: black;
+}
+.background-white {
+	background-color: white;
+}
+
+/* text & font */
+.text-white {
+	color: white;
+}
+
+
+.text-red {
+    color: #991d24;
+}
+
+
+.font-1rem {
+	font-size: 1rem;
+}
+
+.text-center {
+	text-align: center;
+}
+
+/* list */
+.list-style-none {
+	list-style: none;
+}
+
+/* width */
+
+.w-50 {
+	width: 50%;
+}
+
+/* padding */
+.p-0 {
+	padding: 0
+}
+.py-1rem {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+.p-1rem {
+	padding: 1rem;
+}
+
+.px-1rem {
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+
+.px-05rem {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.py-075rem {
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+}
+
+/* margin */
+.mt-0 {
+    margin-top: 0 !important;
+
+}
+.m-0 {
+	margin: 0;
+}
+.m-auto {
+	margin: auto;
+}
+.ml-auto {
+	margin-left: auto;
+}
+.mr-auto {
+	margin-right: auto;
+}
+.my-0 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* flexbox */
+.row {
+    display: flex;
+}
+
+.col {
+    flex: 1;
+}
+
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+
+/* border */
+.border-right-ssu {
+	border-right: 1px solid white;
+}
+
+
+@keyframes turnRed {
+	from {
+		color: white;
+	}
+}
+
+/* nav */
+.nav-item-ssu {
+	padding: 0 1rem;
+}
+.nav-item-ssu a {
+
+	color: white;
+}
+.nav-item-ssu a.active-link {
+   animation-name: turnRed;
+   animation-duration: 200ms;
+   color: #991d24;
+}
+
+#stock-show-nav {
+	background-color: black;
+	color: white;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 1rem;
+	font-size: 1rem;
+	display: block;
+}
+#stock-show-nav ul {
+	list-style: none;
+	display: inline-flex;
+	padding: 0;
+	margin: 0;
+}
