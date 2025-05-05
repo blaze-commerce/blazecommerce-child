@@ -75,11 +75,6 @@ function blaze_theme_register_required_plugins() {
             'required' => true,
         ],
         [
-            'name'     => 'Draft – Tailwind CSS for WordPress.',
-            'slug'     => 'website-builder',
-            'required' => true,
-        ],
-        [
             'name'     => 'WPGraphQL',
             'slug'     => 'wp-graphql',
             'required' => true,
@@ -117,6 +112,10 @@ function blaze_theme_register_required_plugins() {
         [
             'name'     => 'Variation Swatches for WooCommerce',
             'slug'     => 'woo-variation-swatches',
+        ],
+        [
+            'name'     => 'WindPress',
+            'slug'     => 'windpress',
         ],
         [
             'name'     => 'Gravity Forms',
@@ -217,6 +216,12 @@ function blaze_theme_register_required_plugins() {
             'slug'               => 'woocommerce-product-addons',
             'source'             => 'https://blazecommerce.io/wp-content/blaze-commerce-plugins/woocommerce-product-addons.zip',
             'version'            => '7.2.1',
+        ],
+        [
+            'name'     => 'GenerateBlocks',
+            'slug'     => 'generateblocks-pro',
+            'source'             => 'https://blazecommerce.io/wp-content/blaze-commerce-plugins/generateblocks-pro.zip',
+            'required' => true,
         ],
     ];
 
