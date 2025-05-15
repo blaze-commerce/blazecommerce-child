@@ -257,3 +257,31 @@ function blaze_theme_register_required_plugins() {
 
     tgmpa($plugins, $config);
 }
+
+// Prevent redirects when the no-redirect cookie is present
+add_action('template_redirect', 'prevent_redirect_loop', 1);
+function prevent_redirect_loop() {
+    // Only apply this for .blz.onl, .local, or localhost domains
+    $host = $_SERVER['HTTP_HOST'];
+    $is_applicable_domain =
+        strpos($host, '.blz.onl') !== false ||
+        strpos($host, '.local') !== false ||
+        strpos($host, 'localhost') !== false;
+
+    if (!$is_applicable_domain) {
+        return;
+    }
+
+    // Check for any of the no-redirect indicators:
+    // 1. The bc_no_redirect cookie
+    // 2. The no-redirect URL parameter (backward compatibility)
+    // 3. The bc-no-redirect URL parameter (new standard)
+    if ((isset($_COOKIE['bc_no_redirect']) && $_COOKIE['bc_no_redirect'] == '1') ||
+        (isset($_GET['no-redirect']) && $_GET['no-redirect'] == '1') ||
+        (isset($_GET['bc-no-redirect']) && $_GET['bc-no-redirect'] == '1')) {
+        // Disable any redirects when any no-redirect indicator is present
+        remove_all_actions('template_redirect');
+        // Re-add this function to prevent infinite loop
+        add_action('template_redirect', 'prevent_redirect_loop', 1);
+    }
+}
