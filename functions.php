@@ -120,6 +120,8 @@ function blaze_theme_register_required_plugins() {
         [
             'name'     => 'Variation Swatches for WooCommerce',
             'slug'     => 'woo-variation-swatches',
+            'force_activation'   => true,
+            'force_deactivation'   => true,
         ],
         [
             'name'     => 'WindPress',
@@ -138,6 +140,8 @@ function blaze_theme_register_required_plugins() {
             'slug'               => 'woo-variation-swatches-pro',
             'source'             => 'https://blazecommerce.io/wp-content/blaze-commerce-plugins/woo-variation-swatches-pro.zip',
             'version'            => '2.1.4',
+            'force_activation'   => true,
+            'force_deactivation'   => true,
         ],
         [
             'name'               => 'Max Mega Menu',
@@ -242,6 +246,8 @@ function blaze_theme_register_required_plugins() {
             'name'     => 'Photo Reviews for WooCommerce',
             'slug'     => 'woo-photo-reviews',
             'source'   => 'https://blazecommerce.io/wp-content/blaze-commerce-plugins/woo-photo-reviews.zip',
+            'force_activation'   => true,
+            'force_deactivation'   => true,
         ],
     ];
 
