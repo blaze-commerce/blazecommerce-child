@@ -302,11 +302,11 @@ function blaze_register_block_patterns() {
         register_block_pattern(
             'blaze-commerce/our-expert',
             array(
-                'title'         => __('BlazeCommerce Our Expert', 'blaze-child'),
+                'title'         => __('Our Expert', 'blaze-child'),
                 'description'   => __('A professional expert section showcasing expertise with responsive layout for desktop, tablet, and mobile.', 'blaze-child'),
                 'content'       => blaze_get_pattern_content('blaze-commerce-our-expert'),
                 'categories'    => array('blazecommerce-layout'),
-                'keywords'      => array('expert', 'team', 'professional', 'specialist', 'kajal', 'naina'),
+                'keywords'      => array('expert', 'team', 'professional', 'specialist', 'about', 'profile'),
                 'viewportWidth' => 1400,
                 'blockTypes'    => array('core/post-content'),
                 'postTypes'     => array('page', 'wp_template'),
