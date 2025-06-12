@@ -2,7 +2,7 @@
 /**
  * Title: Our Expert
  * Slug: blaze-commerce/our-expert
- * Categories: BlazeCommerce Layout
+ * Categories: about, team
  * Keywords: expert, team, professional, specialist, about, profile
  * Block Types: core/post-content
  * Post Types: page, wp_template
