@@ -263,3 +263,33 @@ function blaze_theme_register_required_plugins() {
 
     tgmpa($plugins, $config);
 }
+
+// Register BlazeCommerce block pattern categories
+add_action('init', 'blaze_register_block_pattern_categories');
+function blaze_register_block_pattern_categories() {
+    if (function_exists('register_block_pattern_category')) {
+        register_block_pattern_category(
+            'BlazeCommerce Media',
+            array(
+                'label' => __('BlazeCommerce Media', 'blaze-child'),
+                'description' => __('Media-related patterns for BlazeCommerce sites', 'blaze-child'),
+            )
+        );
+
+        register_block_pattern_category(
+            'BlazeCommerce Layout',
+            array(
+                'label' => __('BlazeCommerce Layout', 'blaze-child'),
+                'description' => __('Layout patterns for BlazeCommerce sites', 'blaze-child'),
+            )
+        );
+
+        register_block_pattern_category(
+            'BlazeCommerce Commerce',
+            array(
+                'label' => __('BlazeCommerce Commerce', 'blaze-child'),
+                'description' => __('E-commerce patterns for BlazeCommerce sites', 'blaze-child'),
+            )
+        );
+    }
+}
