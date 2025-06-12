@@ -11,57 +11,46 @@
  */
 ?>
 
-<!-- wp:group {"metadata":{"name":"BlazeCommerce Our Expert"},"align":"full","className":"self-stretch pt-20 inline-flex flex-col justify-start items-start gap-2.5","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"5rem","bottom":"0","left":"0","right":"0"}}},"layout":{"type":"constrained","contentSize":"100%"}} -->
-<div class="wp-block-group alignfull self-stretch pt-20 inline-flex flex-col justify-start items-start gap-2.5" style="margin-top:0;margin-bottom:0;padding-top:5rem;padding-right:0;padding-bottom:0;padding-left:0">
-	<!-- wp:group {"className":"self-stretch bg-accent---background-1 flex flex-col justify-start items-start","layout":{"type":"constrained","contentSize":"100%"}} -->
-	<div class="wp-block-group self-stretch bg-accent---background-1 flex flex-col justify-start items-start">
-		<!-- wp:group {"className":"self-stretch bg-Secondary-200/20 inline-flex justify-center items-center gap-10 lg:gap-10 md:pr-8 md:gap-10 sm:pb-10 sm:gap-10 sm:flex-col","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
-		<div class="wp-block-group self-stretch bg-Secondary-200/20 inline-flex justify-center items-center gap-10 lg:gap-10 md:pr-8 md:gap-10 sm:pb-10 sm:gap-10 sm:flex-col">
-			<!-- wp:image {"className":"flex-1 h-[640px] md:h-auto md:self-stretch sm:self-stretch sm:h-60","sizeSlug":"large"} -->
-			<figure class="wp-block-image size-large flex-1 h-[640px] md:h-auto md:self-stretch sm:self-stretch sm:h-60">
-				<img src="https://placehold.co/613x640" alt="Expert Image Left" class="flex-1 h-[640px] md:h-auto md:self-stretch sm:self-stretch sm:h-60"/>
-			</figure>
-			<!-- /wp:image -->
-
-			<!-- wp:group {"className":"flex-1 inline-flex flex-col justify-center items-center gap-6 md:py-8 md:gap-3 sm:self-stretch sm:px-4 sm:gap-3","layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
-			<div class="wp-block-group flex-1 inline-flex flex-col justify-center items-center gap-6 md:py-8 md:gap-3 sm:self-stretch sm:px-4 sm:gap-3">
-				<!-- wp:heading {"textAlign":"center","level":3,"className":"self-stretch text-center justify-start text-Primary-foreground-1 text-2xl font-normal font-['Cardo'] leading-7 md:text-lg md:leading-snug sm:text-base sm:leading-tight","fontSize":"large"} -->
-				<h3 class="wp-block-heading has-text-align-center self-stretch text-center justify-start text-Primary-foreground-1 text-2xl font-normal font-['Cardo'] leading-7 md:text-lg md:leading-snug sm:text-base sm:leading-tight has-large-font-size">Our Expert</h3>
-				<!-- /wp:heading -->
-
-				<!-- wp:heading {"textAlign":"center","className":"self-stretch text-center justify-start text-default-button-primary-text text-4xl font-normal font-['Cardo'] leading-[48px] md:text-3xl md:leading-10 sm:text-base sm:font-bold sm:leading-7","fontSize":"xx-large"} -->
-				<h2 class="wp-block-heading has-text-align-center self-stretch text-center justify-start text-default-button-primary-text text-4xl font-normal font-['Cardo'] leading-[48px] md:text-3xl md:leading-10 sm:text-base sm:font-bold sm:leading-7 has-xx-large-font-size">Meet Kajal Naina</h2>
-				<!-- /wp:heading -->
-
-				<!-- wp:paragraph {"align":"center","className":"self-stretch text-center justify-start text-default-button-primary-text text-lg font-light font-['Josefin_Sans'] leading-7 md:text-base md:leading-normal sm:text-base sm:leading-normal"} -->
-				<p class="has-text-align-center self-stretch text-center justify-start text-default-button-primary-text text-lg font-light font-['Josefin_Sans'] leading-7 md:text-base md:leading-normal sm:text-base sm:leading-normal">A certified pearl specialist with numerous certifications in metalsmithing, metal clay, and jewelry making, Kajal Naina draws on her expertise to craft exquisite, meaningful designs. Her journey spans India, Singapore, Japan, and Hong Kong, blending cultural influences into her fine jewelry. Today, she leads her eponymous brand, uniting passion and artistry to create jewelry that tells a story.</p>
-				<!-- /wp:paragraph -->
-
-				<!-- wp:buttons {"className":"inline-flex justify-center items-center"} -->
-				<div class="wp-block-buttons inline-flex justify-center items-center">
-					<!-- wp:button {"className":"pl-6 pr-4 py-2 bg-default-button-primary-bg---active rounded-sm inline-flex justify-center items-center gap-1.5"} -->
-					<div class="wp-block-button pl-6 pr-4 py-2 bg-default-button-primary-bg---active rounded-sm inline-flex justify-center items-center gap-1.5">
-						<a class="wp-block-button__link wp-element-button" href="/about">
-							<span class="text-center justify-center text-background text-base font-normal font-['Josefin_Sans'] uppercase leading-7 tracking-tight md:text-sm sm:text-sm">Get To Know Us</span>
-							<span class="w-4 h-4 relative overflow-hidden">
-								<span class="w-1 h-2 left-[7px] top-[5.25px] absolute outline outline-1 outline-offset-[-0.50px] outline-white"></span>
-							</span>
-						</a>
-					</div>
-					<!-- /wp:button -->
-				</div>
-				<!-- /wp:buttons -->
-			</div>
-			<!-- /wp:group -->
-
-			<!-- wp:image {"className":"flex-1 self-stretch md:hidden sm:hidden","sizeSlug":"large"} -->
-			<figure class="wp-block-image size-large flex-1 self-stretch md:hidden sm:hidden">
-				<img src="https://placehold.co/613x640" alt="Expert Image Right" class="flex-1 self-stretch md:hidden sm:hidden"/>
+<!-- wp:group {"metadata":{"name":"BlazeCommerce Our Expert"},"align":"full","style":{"spacing":{"padding":{"top":"5rem","bottom":"5rem","left":"1.5rem","right":"1.5rem"},"margin":{"top":"0","bottom":"0"}},"color":{"background":"#f9fafb"}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
+<div class="wp-block-group alignfull has-background" style="background-color:#f9fafb;margin-top:0;margin-bottom:0;padding-top:5rem;padding-right:1.5rem;padding-bottom:5rem;padding-left:1.5rem">
+	<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"3rem","left":"3rem"}}},"className":"items-center"} -->
+	<div class="wp-block-columns alignwide items-center">
+		<!-- wp:column {"width":"40%","className":"text-center lg:text-left"} -->
+		<div class="wp-block-column text-center lg:text-left" style="flex-basis:40%">
+			<!-- wp:image {"id":123,"width":"400px","height":"400px","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"rounded-2xl shadow-lg aspect-square"} -->
+			<figure class="wp-block-image size-large rounded-2xl shadow-lg aspect-square">
+				<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="<?php echo esc_attr_x( 'Kajal Naina - Expert Jewelry Designer', 'Alt text for expert image', 'blaze-child' ); ?>" style="width:400px;height:400px;object-fit:cover"/>
 			</figure>
 			<!-- /wp:image -->
 		</div>
-		<!-- /wp:group -->
+		<!-- /wp:column -->
+
+		<!-- wp:column {"width":"60%","style":{"spacing":{"blockGap":"1.5rem"}}} -->
+		<div class="wp-block-column" style="flex-basis:60%">
+			<!-- wp:heading {"textAlign":"left","level":3,"style":{"typography":{"fontSize":"1.5rem","fontWeight":"400","lineHeight":"1.75"},"color":{"text":"#6b7280"}},"fontFamily":"cardo"} -->
+			<h3 class="wp-block-heading has-text-align-left has-text-color has-cardo-font-family" style="color:#6b7280;font-size:1.5rem;font-weight:400;line-height:1.75"><?php echo esc_html_x( 'Our Expert', 'Section subtitle', 'blaze-child' ); ?></h3>
+			<!-- /wp:heading -->
+
+			<!-- wp:heading {"textAlign":"left","style":{"typography":{"fontSize":"2.5rem","fontWeight":"400","lineHeight":"1.2"},"color":{"text":"#111827"},"spacing":{"margin":{"bottom":"1.5rem"}}},"fontFamily":"cardo"} -->
+			<h2 class="wp-block-heading has-text-align-left has-text-color has-cardo-font-family" style="color:#111827;margin-bottom:1.5rem;font-size:2.5rem;font-weight:400;line-height:1.2"><?php echo esc_html_x( 'Meet Kajal Naina', 'Expert name heading', 'blaze-child' ); ?></h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:paragraph {"style":{"typography":{"fontSize":"1.125rem","fontWeight":"300","lineHeight":"1.75"},"color":{"text":"#374151"},"spacing":{"margin":{"bottom":"2rem"}}},"fontFamily":"josefin-sans"} -->
+			<p class="has-text-color has-josefin-sans-font-family" style="color:#374151;margin-bottom:2rem;font-size:1.125rem;font-weight:300;line-height:1.75"><?php echo esc_html_x( 'A certified pearl specialist with numerous certifications in metalsmithing, metal clay, and jewelry making, Kajal Naina draws on her expertise to craft exquisite, meaningful designs. Her journey spans India, Singapore, Japan, and Hong Kong, blending cultural influences into her fine jewelry. Today, she leads her eponymous brand, uniting passion and artistry to create jewelry that tells a story.', 'Expert description', 'blaze-child' ); ?></p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"2rem"}}}} -->
+			<div class="wp-block-buttons" style="margin-top:2rem">
+				<!-- wp:button {"style":{"color":{"background":"#1f2937","text":"#ffffff"},"typography":{"fontSize":"1rem","fontWeight":"400","textTransform":"uppercase","letterSpacing":"0.025em"},"spacing":{"padding":{"top":"0.75rem","bottom":"0.75rem","left":"1.5rem","right":"1rem"}},"border":{"radius":"0.125rem"}},"fontFamily":"josefin-sans","className":"hover:bg-gray-800"} -->
+				<div class="wp-block-button hover:bg-gray-800">
+					<a class="wp-block-button__link has-text-color has-background has-josefin-sans-font-family wp-element-button" href="/about" style="border-radius:0.125rem;color:#ffffff;background-color:#1f2937;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;padding-left:1.5rem;font-size:1rem;font-weight:400;letter-spacing:0.025em;text-transform:uppercase"><?php echo esc_html_x( 'Get To Know Us', 'Button text', 'blaze-child' ); ?></a>
+				</div>
+				<!-- /wp:button -->
+			</div>
+			<!-- /wp:buttons -->
+		</div>
+		<!-- /wp:column -->
 	</div>
-	<!-- /wp:group -->
+	<!-- /wp:columns -->
 </div>
 <!-- /wp:group -->
