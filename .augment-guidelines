@@ -34,6 +34,28 @@
 - Types: feat, fix, docs, style, refactor, test, chore
 - Include clear descriptions of theme changes
 - Test all changes across different devices and browsers
+- **MANDATORY**: All commits MUST include documentation updates
+
+### 4. Documentation-First Development Workflow
+**MANDATORY PROCESS**:
+1. **Before coding**: Create/update relevant documentation files in `/docs/`
+2. **During development**: Keep documentation updated with code changes
+3. **Before commit**: Verify all documentation is complete and accurate
+4. **No exceptions**: PRs without complete documentation will be rejected
+
+**Documentation Commit Pattern**:
+```
+feat(patterns): add new hero banner pattern
+
+- Add hero-banner.php pattern with Tailwind CSS classes
+- Include responsive design for mobile/tablet/desktop
+- Add accessibility features with proper ARIA labels
+
+docs: update pattern documentation
+- Add hero banner to /docs/BLOCK-PATTERNS.md
+- Include usage examples and customization options
+- Add screenshots showing responsive behavior
+```
 
 ## Child Theme Specific Guidelines
 
@@ -224,22 +246,69 @@ theme.json       - Theme configuration for block editor
 
 ## Documentation Requirements
 
-### 1. Code Documentation
-- Document all custom functions and classes
-- Use PHPDoc format for PHP documentation
-- Include inline comments for complex logic
-- Maintain changelog for theme updates
+### 1. Mandatory Documentation Structure
+**MANDATORY**: All changes MUST include comprehensive .md documentation files in the `/docs` directory:
 
-### 2. User Documentation
-- Provide clear theme setup instructions
-- Document all customizer options and features
-- Include troubleshooting guides for common issues
-- Maintain compatibility notes for plugins
+```
+/docs/
+├── README.md                    # Main documentation index
+├── CHANGELOG.md                 # Version history and changes
+├── SETUP.md                     # Installation and setup guide
+├── CUSTOMIZATION.md             # Theme customization guide
+├── BLOCK-PATTERNS.md            # Block patterns documentation
+├── TEMPLATES.md                 # Template usage and customization
+├── FUNCTIONS.md                 # Custom functions documentation
+├── SECURITY.md                  # Security guidelines and practices
+├── PERFORMANCE.md               # Performance optimization guide
+├── ACCESSIBILITY.md             # Accessibility compliance guide
+├── TROUBLESHOOTING.md           # Common issues and solutions
+├── API.md                       # Theme API and hooks reference
+└── CONTRIBUTING.md              # Development contribution guide
+```
+
+### 2. Documentation Standards
+**MANDATORY REQUIREMENTS**:
+- **Every code change** MUST include corresponding documentation updates
+- **New features** MUST have complete documentation before merge
+- **Bug fixes** MUST update relevant documentation sections
+- **All documentation** MUST be written in clear, concise Markdown
+- **Code examples** MUST be included for all functions and features
+- **Screenshots** MUST be included for visual features and customizations
+
+### 3. Code Documentation
+- Document all custom functions and classes with PHPDoc format
+- Include inline comments for complex logic and algorithms
+- Maintain comprehensive API documentation in `/docs/API.md`
+- Document all WordPress hooks and filters used
+
+### 4. Feature Documentation Requirements
+**For every new feature, MUST create/update**:
+- `/docs/FUNCTIONS.md` - Document all new functions with examples
+- `/docs/BLOCK-PATTERNS.md` - Document new patterns with usage examples
+- `/docs/TEMPLATES.md` - Document template changes and customizations
+- `/docs/CUSTOMIZATION.md` - Update customization options
+- `/docs/CHANGELOG.md` - Add detailed change log entry
+
+### 5. User Documentation
+- Maintain clear theme setup instructions in `/docs/SETUP.md`
+- Document all customizer options in `/docs/CUSTOMIZATION.md`
+- Keep troubleshooting guides updated in `/docs/TROUBLESHOOTING.md`
+- Maintain plugin compatibility notes in `/docs/README.md`
+
+### 6. Documentation Review Process
+**MANDATORY CHECKS**:
+- [ ] All relevant .md files updated
+- [ ] Code examples tested and working
+- [ ] Screenshots updated for visual changes
+- [ ] Links and references verified
+- [ ] Spelling and grammar checked
+- [ ] Documentation follows consistent formatting
 
 ---
 
 ## Quick Reference Checklist
 
+### Code Standards
 - [ ] Follow WordPress coding standards for all code
 - [ ] Use proper child theme function naming with prefixes
 - [ ] Enqueue parent theme styles correctly
@@ -248,10 +317,30 @@ theme.json       - Theme configuration for block editor
 - [ ] Test across major browsers and devices
 - [ ] Validate all user inputs and escape outputs
 - [ ] Optimize assets for performance
-- [ ] Document all custom functionality
 - [ ] Test with latest WordPress version
 - [ ] Verify WooCommerce compatibility (if applicable)
 - [ ] Use semantic HTML and proper heading hierarchy
 - [ ] Implement proper error handling and logging
 - [ ] Follow block pattern development guidelines
 - [ ] Maintain clean and organized file structure
+
+### MANDATORY Documentation Checklist
+- [ ] **REQUIRED**: Update `/docs/CHANGELOG.md` with detailed changes
+- [ ] **REQUIRED**: Update `/docs/FUNCTIONS.md` for any new functions
+- [ ] **REQUIRED**: Update `/docs/BLOCK-PATTERNS.md` for new patterns
+- [ ] **REQUIRED**: Update `/docs/TEMPLATES.md` for template changes
+- [ ] **REQUIRED**: Update `/docs/CUSTOMIZATION.md` for new options
+- [ ] **REQUIRED**: Update `/docs/API.md` for new hooks/filters
+- [ ] **REQUIRED**: Include code examples in all documentation
+- [ ] **REQUIRED**: Add screenshots for visual features
+- [ ] **REQUIRED**: Test all documented code examples
+- [ ] **REQUIRED**: Verify all documentation links work
+- [ ] **REQUIRED**: Check spelling and grammar in all docs
+- [ ] **REQUIRED**: Follow consistent Markdown formatting
+
+### Pre-Commit Requirements
+- [ ] All relevant documentation files created/updated
+- [ ] Documentation review checklist completed
+- [ ] Code examples tested and verified working
+- [ ] Screenshots captured for visual changes
+- [ ] No merge allowed without complete documentation
