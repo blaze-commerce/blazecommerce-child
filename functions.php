@@ -264,6 +264,107 @@ function blaze_theme_register_required_plugins() {
     tgmpa($plugins, $config);
 }
 
+// Dynamically register all BlazeCommerce block patterns
+add_action('init', 'blaze_register_patterns_dynamically');
+function blaze_register_patterns_dynamically() {
+    if (!function_exists('register_block_pattern')) {
+        return;
+    }
+
+    $patterns_dir = get_stylesheet_directory() . '/patterns/';
+
+    // Check if patterns directory exists
+    if (!is_dir($patterns_dir)) {
+        return;
+    }
+
+    // Get all PHP files in patterns directory that start with 'blaze-commerce-'
+    $pattern_files = glob($patterns_dir . 'blaze-commerce-*.php');
+
+    foreach ($pattern_files as $pattern_file) {
+        $pattern_data = blaze_parse_pattern_header($pattern_file);
+
+        if (!empty($pattern_data['title']) && !empty($pattern_data['slug'])) {
+            // Get pattern content
+            $content = blaze_get_pattern_content($pattern_file);
+
+            if (!empty($content)) {
+                register_block_pattern(
+                    $pattern_data['slug'],
+                    array(
+                        'title'         => $pattern_data['title'],
+                        'description'   => $pattern_data['description'] ?: '',
+                        'content'       => $content,
+                        'categories'    => $pattern_data['categories'] ?: array('featured'),
+                        'keywords'      => $pattern_data['keywords'] ?: array(),
+                        'viewportWidth' => $pattern_data['viewport_width'] ?: 1400,
+                        'blockTypes'    => $pattern_data['block_types'] ?: array('core/post-content'),
+                        'postTypes'     => $pattern_data['post_types'] ?: array('page', 'wp_template'),
+                    )
+                );
+            }
+        }
+    }
+}
+
+// Parse pattern header to extract metadata
+function blaze_parse_pattern_header($pattern_file) {
+    $file_content = file_get_contents($pattern_file);
+    $pattern_data = array();
+
+    // Extract header comment block
+    if (preg_match('/\/\*\*(.*?)\*\//s', $file_content, $matches)) {
+        $header = $matches[1];
+
+        // Parse each header field
+        $fields = array(
+            'title' => 'Title',
+            'slug' => 'Slug',
+            'categories' => 'Categories',
+            'keywords' => 'Keywords',
+            'block_types' => 'Block Types',
+            'post_types' => 'Post Types',
+            'viewport_width' => 'Viewport width',
+            'description' => 'Description'
+        );
+
+        foreach ($fields as $key => $field) {
+            if (preg_match('/\* ' . preg_quote($field, '/') . ':\s*(.+)/i', $header, $field_matches)) {
+                $value = trim($field_matches[1]);
+
+                // Handle array fields (comma-separated values)
+                if (in_array($key, array('categories', 'keywords', 'block_types', 'post_types'))) {
+                    $pattern_data[$key] = array_map('trim', explode(',', $value));
+                } elseif ($key === 'viewport_width') {
+                    $pattern_data[$key] = intval($value);
+                } else {
+                    $pattern_data[$key] = $value;
+                }
+            }
+        }
+    }
+
+    return $pattern_data;
+}
+
+// Get pattern content from PHP file
+function blaze_get_pattern_content($pattern_file) {
+    if (!file_exists($pattern_file)) {
+        return '';
+    }
+
+    ob_start();
+    include $pattern_file;
+    $content = ob_get_clean();
+
+    // Extract WordPress block content (everything after PHP closing tag)
+    if (strpos($content, '?>') !== false) {
+        $content = substr($content, strpos($content, '?>') + 2);
+    }
+
+    return trim($content);
+}
+
 
 
 
