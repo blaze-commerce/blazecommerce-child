@@ -263,3 +263,90 @@ function blaze_theme_register_required_plugins() {
 
     tgmpa($plugins, $config);
 }
+
+// Register BlazeCommerce block pattern category
+add_action('init', 'blaze_register_pattern_categories');
+function blaze_register_pattern_categories() {
+    if (function_exists('register_block_pattern_category')) {
+        register_block_pattern_category(
+            'blazecommerce-layout',
+            array(
+                'label' => __('BlazeCommerce Layout', 'blaze-child'),
+                'description' => __('Layout patterns for BlazeCommerce themes', 'blaze-child'),
+            )
+        );
+
+        register_block_pattern_category(
+            'blazecommerce-media',
+            array(
+                'label' => __('BlazeCommerce Media', 'blaze-child'),
+                'description' => __('Media and gallery patterns for BlazeCommerce themes', 'blaze-child'),
+            )
+        );
+
+        register_block_pattern_category(
+            'blazecommerce-content',
+            array(
+                'label' => __('BlazeCommerce Content', 'blaze-child'),
+                'description' => __('Content patterns for BlazeCommerce themes', 'blaze-child'),
+            )
+        );
+    }
+}
+
+// Register BlazeCommerce block patterns
+add_action('init', 'blaze_register_block_patterns');
+function blaze_register_block_patterns() {
+    if (function_exists('register_block_pattern')) {
+        // Register Our Expert pattern
+        register_block_pattern(
+            'blaze-commerce/our-expert',
+            array(
+                'title'         => __('BlazeCommerce Our Expert', 'blaze-child'),
+                'description'   => __('A professional expert section showcasing expertise with responsive layout for desktop, tablet, and mobile.', 'blaze-child'),
+                'content'       => blaze_get_pattern_content('blaze-commerce-our-expert'),
+                'categories'    => array('blazecommerce-layout'),
+                'keywords'      => array('expert', 'team', 'professional', 'specialist', 'kajal', 'naina'),
+                'viewportWidth' => 1400,
+                'blockTypes'    => array('core/post-content'),
+                'postTypes'     => array('page', 'wp_template'),
+            )
+        );
+    }
+}
+
+// Helper function to get pattern content from PHP files
+function blaze_get_pattern_content($pattern_name) {
+    $pattern_file = get_stylesheet_directory() . '/patterns/' . $pattern_name . '.php';
+
+    if (file_exists($pattern_file)) {
+        ob_start();
+        include $pattern_file;
+        $content = ob_get_clean();
+
+        // Extract content between the PHP opening/closing tags
+        $pattern = '/<!-- wp:.*?-->(.*?)<!-- \/wp:.*?-->/s';
+        if (preg_match($pattern, $content, $matches)) {
+            return trim($matches[0]);
+        }
+
+        // If no WordPress blocks found, return the content after the PHP header
+        $lines = explode("\n", $content);
+        $content_lines = array();
+        $in_content = false;
+
+        foreach ($lines as $line) {
+            if (strpos($line, '?>') !== false) {
+                $in_content = true;
+                continue;
+            }
+            if ($in_content) {
+                $content_lines[] = $line;
+            }
+        }
+
+        return trim(implode("\n", $content_lines));
+    }
+
+    return '';
+}
