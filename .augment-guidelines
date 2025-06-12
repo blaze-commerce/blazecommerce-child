@@ -1,0 +1,257 @@
+# BlazeCommerce WordPress Child Theme Development Guidelines
+
+## Table of Contents
+1. [General Principles](#general-principles)
+2. [Child Theme Specific Guidelines](#child-theme-specific-guidelines)
+3. [WordPress Coding Standards](#wordpress-coding-standards)
+4. [File Structure & Organization](#file-structure--organization)
+5. [Block Patterns & Templates](#block-patterns--templates)
+6. [Security Best Practices](#security-best-practices)
+7. [Performance Guidelines](#performance-guidelines)
+8. [Accessibility Standards](#accessibility-standards)
+9. [Code Quality & Testing](#code-quality--testing)
+10. [Documentation Requirements](#documentation-requirements)
+
+## General Principles
+
+### 1. Follow WordPress Theme Development Standards
+- Use WordPress PHP Coding Standards (WPCS) for all PHP code
+- Follow WordPress naming conventions for functions, classes, and variables
+- Use proper indentation (tabs for indentation, spaces for alignment)
+- Maximum line length of 120 characters
+- Maintain backward compatibility with parent theme
+- Document all public methods and classes
+
+### 2. Child Theme Architecture
+- Never modify parent theme files directly
+- Use child theme functions.php to extend functionality
+- Override parent theme templates by copying to child theme directory
+- Use proper WordPress hooks and filters for customizations
+- Implement theme customization through WordPress Customizer API
+
+### 3. Commit Guidelines
+- Follow conventional commit format: `type(scope): description`
+- Types: feat, fix, docs, style, refactor, test, chore
+- Include clear descriptions of theme changes
+- Test all changes across different devices and browsers
+
+## Child Theme Specific Guidelines
+
+### 1. Function Naming Conventions
+- Prefix all custom functions with theme slug: `blazecommerce_child_`
+- Use descriptive names: `blazecommerce_child_enqueue_styles()`
+- Avoid conflicts with parent theme and plugins
+- Use consistent naming patterns throughout the theme
+
+### 2. Proper Style Enqueueing
+```php
+// Correct way to enqueue parent and child theme styles
+function blazecommerce_child_enqueue_styles() {
+    // Enqueue parent theme stylesheet
+    wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
+    
+    // Enqueue child theme stylesheet with parent as dependency
+    wp_enqueue_style('child-style', 
+        get_stylesheet_directory_uri() . '/style.css',
+        array('parent-style'),
+        wp_get_theme()->get('Version')
+    );
+}
+add_action('wp_enqueue_scripts', 'blazecommerce_child_enqueue_styles');
+```
+
+### 3. Template Hierarchy
+- Understand WordPress template hierarchy
+- Override only necessary parent theme templates
+- Use template parts for reusable components
+- Implement proper fallbacks for missing templates
+
+### 4. Customizer Integration
+- Use WordPress Customizer API for theme options
+- Implement live preview functionality
+- Organize settings into logical sections
+- Provide default values for all customizer options
+
+## WordPress Coding Standards
+
+### 1. PHP Standards
+- Use WordPress PHP Coding Standards (WPCS)
+- Implement proper error handling with try-catch blocks
+- Use WordPress database abstraction layer ($wpdb)
+- Follow WordPress security practices (nonces, sanitization, escaping)
+
+### 2. CSS Standards
+- Use consistent indentation and formatting
+- Organize CSS logically (base, layout, components, utilities)
+- Use CSS custom properties for theme customization
+- Implement responsive design principles
+- Follow BEM methodology for class naming when appropriate
+
+### 3. JavaScript Standards
+- Use WordPress JavaScript coding standards
+- Properly enqueue JavaScript files with dependencies
+- Use WordPress AJAX for dynamic functionality
+- Implement proper event handling and DOM manipulation
+
+## File Structure & Organization
+
+### 1. Directory Structure
+```
+/assets          - CSS/JS/Image assets
+/parts           - Block template parts
+/patterns        - Block patterns
+/templates       - Full site editing templates
+/template-parts  - PHP template parts
+/woocommerce     - WooCommerce template overrides
+/src             - Source files (if using build process)
+functions.php    - Theme functions and hooks
+style.css        - Main stylesheet with theme header
+theme.json       - Theme configuration for block editor
+```
+
+### 2. File Naming Conventions
+- Use lowercase with hyphens for file names
+- Follow WordPress template naming conventions
+- Group related files in appropriate subdirectories
+- Use descriptive names that reflect functionality
+
+### 3. Template Organization
+- Separate logic from presentation
+- Use template parts for reusable components
+- Implement proper template hierarchy
+- Keep templates focused and maintainable
+
+## Block Patterns & Templates
+
+### 1. Block Pattern Development
+- Create reusable block patterns for common layouts
+- Use only native WordPress blocks when possible
+- Implement inline Tailwind CSS classes for styling
+- Follow BlazeCommerce pattern naming conventions
+- Ensure patterns are responsive and accessible
+
+### 2. Template Development
+- Use Full Site Editing (FSE) templates when appropriate
+- Implement proper block template structure
+- Ensure templates work with different content types
+- Test templates across various screen sizes
+
+### 3. Custom Blocks (if needed)
+- Register blocks properly using WordPress block API
+- Implement server-side rendering when necessary
+- Follow WordPress block development best practices
+- Ensure blocks are accessible and performant
+
+## Security Best Practices
+
+### 1. Input Validation & Sanitization
+- Sanitize all user inputs using WordPress functions
+- Validate data types and formats before processing
+- Use WordPress nonce verification for forms
+- Implement proper capability checks for admin functions
+
+### 2. Output Escaping
+- Escape all output using appropriate WordPress functions
+- Use `esc_html()`, `esc_attr()`, `esc_url()` as needed
+- Never trust user input or external data
+- Implement Content Security Policy headers when possible
+
+### 3. File Security
+- Prevent direct access to PHP files when appropriate
+- Use proper file permissions (644 for files, 755 for directories)
+- Validate file uploads and restrict file types
+- Implement proper error handling without exposing sensitive information
+
+## Performance Guidelines
+
+### 1. Asset Optimization
+- Minimize and compress CSS and JavaScript files
+- Optimize images for web (WebP format when possible)
+- Use proper caching headers for static assets
+- Implement lazy loading for images and videos
+
+### 2. Database Optimization
+- Minimize database queries in templates
+- Use WordPress transients for caching expensive operations
+- Implement proper query optimization
+- Use WP_Query efficiently and avoid unnecessary queries
+
+### 3. Code Optimization
+- Remove unused CSS and JavaScript
+- Use conditional loading for admin-only scripts
+- Implement proper resource hints (preload, prefetch)
+- Optimize critical rendering path
+
+## Accessibility Standards
+
+### 1. WCAG 2.1 AA Compliance
+- Ensure proper color contrast ratios (4.5:1 for normal text)
+- Implement keyboard navigation support
+- Use semantic HTML elements appropriately
+- Provide alternative text for all images
+
+### 2. Screen Reader Support
+- Use proper heading hierarchy (h1-h6)
+- Implement ARIA labels and descriptions where needed
+- Ensure form labels are properly associated
+- Test with screen readers (NVDA, JAWS, VoiceOver)
+
+### 3. Responsive Design
+- Implement mobile-first responsive design
+- Ensure touch targets are at least 44px
+- Test across various devices and screen sizes
+- Use relative units (rem, em) for scalable typography
+
+## Code Quality & Testing
+
+### 1. Code Standards
+- Use PHP_CodeSniffer with WordPress standards
+- Implement ESLint for JavaScript code quality
+- Use Stylelint for CSS code quality
+- Regular code reviews and peer feedback
+
+### 2. Testing Requirements
+- Test theme with latest WordPress version
+- Verify compatibility with popular plugins
+- Test all customizer options and theme features
+- Validate HTML and CSS output
+
+### 3. Browser Compatibility
+- Test across major browsers (Chrome, Firefox, Safari, Edge)
+- Ensure graceful degradation for older browsers
+- Implement progressive enhancement strategies
+- Use autoprefixer for CSS vendor prefixes
+
+## Documentation Requirements
+
+### 1. Code Documentation
+- Document all custom functions and classes
+- Use PHPDoc format for PHP documentation
+- Include inline comments for complex logic
+- Maintain changelog for theme updates
+
+### 2. User Documentation
+- Provide clear theme setup instructions
+- Document all customizer options and features
+- Include troubleshooting guides for common issues
+- Maintain compatibility notes for plugins
+
+---
+
+## Quick Reference Checklist
+
+- [ ] Follow WordPress coding standards for all code
+- [ ] Use proper child theme function naming with prefixes
+- [ ] Enqueue parent theme styles correctly
+- [ ] Implement responsive design with mobile-first approach
+- [ ] Ensure WCAG 2.1 AA accessibility compliance
+- [ ] Test across major browsers and devices
+- [ ] Validate all user inputs and escape outputs
+- [ ] Optimize assets for performance
+- [ ] Document all custom functionality
+- [ ] Test with latest WordPress version
+- [ ] Verify WooCommerce compatibility (if applicable)
+- [ ] Use semantic HTML and proper heading hierarchy
+- [ ] Implement proper error handling and logging
+- [ ] Follow block pattern development guidelines
+- [ ] Maintain clean and organized file structure
