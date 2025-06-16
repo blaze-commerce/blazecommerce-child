@@ -264,6 +264,13 @@ function blaze_theme_register_required_plugins() {
     tgmpa($plugins, $config);
 }
 
+// Add theme support for block patterns
+add_action('after_setup_theme', 'blaze_add_theme_support');
+function blaze_add_theme_support() {
+    // Add support for block patterns
+    add_theme_support('core-block-patterns');
+}
+
 // Register BlazeCommerce block pattern categories
 add_action('init', 'blaze_register_block_pattern_categories');
 function blaze_register_block_pattern_categories() {
@@ -299,6 +306,15 @@ function blaze_register_block_pattern_categories() {
                 'description' => __('Content patterns for BlazeCommerce sites', 'blaze-child'),
             )
         );
+
+        // Also register the standard header category if it doesn't exist
+        register_block_pattern_category(
+            'header',
+            array(
+                'label' => __('Header', 'blaze-child'),
+                'description' => __('Header patterns and navigation elements', 'blaze-child'),
+            )
+        );
     }
 }
 
@@ -306,6 +322,7 @@ function blaze_register_block_pattern_categories() {
 add_action('init', 'blaze_register_patterns_dynamically');
 function blaze_register_patterns_dynamically() {
     if (!function_exists('register_block_pattern')) {
+        error_log('BlazeCommerce Patterns: register_block_pattern function not available');
         return;
     }
 
@@ -313,11 +330,13 @@ function blaze_register_patterns_dynamically() {
 
     // Check if patterns directory exists
     if (!is_dir($patterns_dir)) {
+        error_log('BlazeCommerce Patterns: patterns directory not found at ' . $patterns_dir);
         return;
     }
 
     // Get all PHP files in patterns directory that start with 'blaze-commerce-'
     $pattern_files = glob($patterns_dir . 'blaze-commerce-*.php');
+    error_log('BlazeCommerce Patterns: Found ' . count($pattern_files) . ' pattern files');
 
     foreach ($pattern_files as $pattern_file) {
         $pattern_data = blaze_parse_pattern_header($pattern_file);
@@ -327,6 +346,7 @@ function blaze_register_patterns_dynamically() {
             $content = blaze_get_pattern_content($pattern_file);
 
             if (!empty($content)) {
+                error_log('BlazeCommerce Patterns: Registering pattern ' . $pattern_data['slug']);
                 register_block_pattern(
                     $pattern_data['slug'],
                     array(
@@ -340,7 +360,11 @@ function blaze_register_patterns_dynamically() {
                         'postTypes'     => $pattern_data['post_types'] ?: array('page', 'wp_template'),
                     )
                 );
+            } else {
+                error_log('BlazeCommerce Patterns: Empty content for pattern ' . $pattern_data['slug']);
             }
+        } else {
+            error_log('BlazeCommerce Patterns: Missing title or slug for pattern file ' . basename($pattern_file));
         }
     }
 }
@@ -401,4 +425,24 @@ function blaze_get_pattern_content($pattern_file) {
     }
 
     return trim($content);
+}
+
+// Debug function to check registered patterns (remove after testing)
+add_action('wp_loaded', 'blaze_debug_patterns');
+function blaze_debug_patterns() {
+    if (current_user_can('manage_options') && isset($_GET['debug_patterns'])) {
+        $registered_patterns = WP_Block_Patterns_Registry::get_instance()->get_all_registered();
+        error_log('All registered patterns: ' . print_r(array_keys($registered_patterns), true));
+
+        $blaze_patterns = array_filter($registered_patterns, function($pattern_name) {
+            return strpos($pattern_name, 'blazecommerce/') === 0;
+        }, ARRAY_FILTER_USE_KEY);
+
+        error_log('BlazeCommerce patterns: ' . print_r(array_keys($blaze_patterns), true));
+
+        // Also output to screen for debugging
+        echo '<pre>All registered patterns: ' . print_r(array_keys($registered_patterns), true) . '</pre>';
+        echo '<pre>BlazeCommerce patterns: ' . print_r(array_keys($blaze_patterns), true) . '</pre>';
+        exit;
+    }
 }
