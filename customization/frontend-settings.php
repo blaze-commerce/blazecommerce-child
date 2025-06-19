@@ -8,6 +8,9 @@ add_filter( 'blazecommerce/settings/product', function ($settings) {
 	// We make the product gallery to grid layout
 	$settings['productGallery']['isGrid'] = true;
 
+	// Disable vertical layout for dancewear products - use default horizontal layout
+	$settings['productGallery']['isVertical'] = false;
+
 	return $settings;
 }, 10, 1 );
 
