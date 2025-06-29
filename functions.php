@@ -446,3 +446,18 @@ function blaze_debug_patterns() {
         exit;
     }
 }
+
+// Disable Action Scheduler for .blz.onl domains
+add_action('init', 'blaze_disable_action_scheduler_for_staging');
+function blaze_disable_action_scheduler_for_staging() {
+    // Check if the current domain contains .blz.onl
+    $current_domain = $_SERVER['HTTP_HOST'] ?? '';
+
+    if (strpos($current_domain, '.blz.onl') !== false) {
+        // Disable Action Scheduler queue runner interval
+        add_filter('action_scheduler_queue_runner_interval', '__return_false');
+
+        // Disable Action Scheduler default runner
+        add_filter('action_scheduler_disable_default_runner', '__return_true');
+    }
+}

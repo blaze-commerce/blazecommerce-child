@@ -254,6 +254,41 @@ if (blazecommerce_child_is_woocommerce_page()) {
 
 **Since**: 1.0.0
 
+### `blaze_disable_action_scheduler_for_staging()`
+
+**Description**: Conditionally disables Action Scheduler background processing on staging domains containing `.blz.onl` to prevent unnecessary resource usage and potential conflicts.
+
+**Location**: `functions.php`
+
+**Usage**:
+```php
+function blaze_disable_action_scheduler_for_staging() {
+    // Check if the current domain contains .blz.onl
+    $current_domain = $_SERVER['HTTP_HOST'] ?? '';
+
+    if (strpos($current_domain, '.blz.onl') !== false) {
+        // Disable Action Scheduler queue runner interval
+        add_filter('action_scheduler_queue_runner_interval', '__return_false');
+
+        // Disable Action Scheduler default runner
+        add_filter('action_scheduler_disable_default_runner', '__return_true');
+    }
+}
+add_action('init', 'blaze_disable_action_scheduler_for_staging');
+```
+
+**Parameters**: None
+
+**Return**: void
+
+**Since**: 1.0.1
+
+**Filters Applied**:
+- `action_scheduler_queue_runner_interval`: Set to `false` to disable queue processing intervals
+- `action_scheduler_disable_default_runner`: Set to `true` to disable the default background runner
+
+**Domain Detection**: Only activates when `$_SERVER['HTTP_HOST']` contains `.blz.onl`
+
 ---
 
 ## Hook Reference
