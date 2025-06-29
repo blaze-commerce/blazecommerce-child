@@ -11,10 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Comprehensive documentation structure in `/docs` directory
 - Mandatory documentation requirements for all code changes
 - Documentation-first development workflow
+- Action Scheduler conditional disabling for staging environments
 
 ### Changed
 - Updated `.augment-guidelines` to mandate comprehensive .md documentation
 - Enhanced commit guidelines to require documentation updates
+
+### Performance
+- Disabled Action Scheduler background processing on `.blz.onl` staging domains to prevent unnecessary resource usage
 
 ## [1.0.1] - 2024-12-12
 
