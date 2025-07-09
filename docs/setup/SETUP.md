@@ -200,10 +200,10 @@ Set proper file permissions:
 
 After successful installation:
 
-1. **Read** the [Customization Guide](CUSTOMIZATION.md)
-2. **Explore** available [Block Patterns](BLOCK-PATTERNS.md)
-3. **Review** [Performance Guidelines](PERFORMANCE.md)
-4. **Check** [Security Best Practices](SECURITY.md)
+1. **Read** the [Customization Guide](../guide/CUSTOMIZATION.md)
+2. **Explore** available [Block Patterns](../guide/BLOCK-PATTERNS.md)
+3. **Review** [Performance Guidelines](../development/PERFORMANCE.md)
+4. **Check** [Security Best Practices](../development/SECURITY.md)
 
 ## Support
 

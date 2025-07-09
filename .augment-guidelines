@@ -247,23 +247,27 @@ theme.json       - Theme configuration for block editor
 ## Documentation Requirements
 
 ### 1. Mandatory Documentation Structure
-**MANDATORY**: All changes MUST include comprehensive .md documentation files in the `/docs` directory:
+**MANDATORY**: All changes MUST include comprehensive .md documentation files organized in the `/docs` directory structure:
 
 ```
 /docs/
 ├── README.md                    # Main documentation index
-├── CHANGELOG.md                 # Version history and changes
-├── SETUP.md                     # Installation and setup guide
-├── CUSTOMIZATION.md             # Theme customization guide
-├── BLOCK-PATTERNS.md            # Block patterns documentation
-├── TEMPLATES.md                 # Template usage and customization
-├── FUNCTIONS.md                 # Custom functions documentation
-├── SECURITY.md                  # Security guidelines and practices
-├── PERFORMANCE.md               # Performance optimization guide
-├── ACCESSIBILITY.md             # Accessibility compliance guide
-├── TROUBLESHOOTING.md           # Common issues and solutions
-├── API.md                       # Theme API and hooks reference
-└── CONTRIBUTING.md              # Development contribution guide
+├── setup/                       # Installation & Configuration
+│   ├── SETUP.md                # Installation and setup guide
+│   └── TROUBLESHOOTING.md      # Common issues and solutions
+├── guide/                       # User Guides & Features
+│   ├── CUSTOMIZATION.md        # Theme customization guide
+│   ├── BLOCK-PATTERNS.md       # Block patterns documentation
+│   ├── TEMPLATES.md            # Template usage and customization
+│   └── ACCESSIBILITY.md        # Accessibility compliance guide
+├── development/                 # Developer Documentation
+│   ├── CONTRIBUTING.md         # Development contribution guide
+│   ├── FUNCTIONS.md            # Custom functions documentation
+│   ├── API.md                  # Theme API and hooks reference
+│   ├── SECURITY.md             # Security guidelines and practices
+│   └── PERFORMANCE.md          # Performance optimization guide
+└── reference/                   # Reference Materials
+    └── CHANGELOG.md            # Version history and changes
 ```
 
 ### 2. Documentation Standards
@@ -283,19 +287,26 @@ theme.json       - Theme configuration for block editor
 
 ### 4. Feature Documentation Requirements
 **For every new feature, MUST create/update**:
-- `/docs/FUNCTIONS.md` - Document all new functions with examples
-- `/docs/BLOCK-PATTERNS.md` - Document new patterns with usage examples
-- `/docs/TEMPLATES.md` - Document template changes and customizations
-- `/docs/CUSTOMIZATION.md` - Update customization options
-- `/docs/CHANGELOG.md` - Add detailed change log entry
+- `/docs/development/FUNCTIONS.md` - Document all new functions with examples
+- `/docs/guide/BLOCK-PATTERNS.md` - Document new patterns with usage examples
+- `/docs/guide/TEMPLATES.md` - Document template changes and customizations
+- `/docs/guide/CUSTOMIZATION.md` - Update customization options
+- `/docs/reference/CHANGELOG.md` - Add detailed change log entry
 
-### 5. User Documentation
-- Maintain clear theme setup instructions in `/docs/SETUP.md`
-- Document all customizer options in `/docs/CUSTOMIZATION.md`
-- Keep troubleshooting guides updated in `/docs/TROUBLESHOOTING.md`
+### 5. Documentation Folder Guidelines
+**Folder Organization Rules**:
+- **Setup Documentation** (`/docs/setup/`) - Installation, configuration, troubleshooting
+- **User Guides** (`/docs/guide/`) - Customization, features, patterns, templates
+- **Developer Documentation** (`/docs/development/`) - Code, API, security, performance
+- **Reference Materials** (`/docs/reference/`) - Changelog, specifications, API reference
+
+### 6. User Documentation
+- Maintain clear theme setup instructions in `/docs/setup/SETUP.md`
+- Document all customizer options in `/docs/guide/CUSTOMIZATION.md`
+- Keep troubleshooting guides updated in `/docs/setup/TROUBLESHOOTING.md`
 - Maintain plugin compatibility notes in `/docs/README.md`
 
-### 6. Documentation Review Process
+### 7. Documentation Review Process
 **MANDATORY CHECKS**:
 - [ ] All relevant .md files updated
 - [ ] Code examples tested and working
@@ -325,16 +336,17 @@ theme.json       - Theme configuration for block editor
 - [ ] Maintain clean and organized file structure
 
 ### MANDATORY Documentation Checklist
-- [ ] **REQUIRED**: Update `/docs/CHANGELOG.md` with detailed changes
-- [ ] **REQUIRED**: Update `/docs/FUNCTIONS.md` for any new functions
-- [ ] **REQUIRED**: Update `/docs/BLOCK-PATTERNS.md` for new patterns
-- [ ] **REQUIRED**: Update `/docs/TEMPLATES.md` for template changes
-- [ ] **REQUIRED**: Update `/docs/CUSTOMIZATION.md` for new options
-- [ ] **REQUIRED**: Update `/docs/API.md` for new hooks/filters
+- [ ] **REQUIRED**: Update `/docs/reference/CHANGELOG.md` with detailed changes
+- [ ] **REQUIRED**: Update `/docs/development/FUNCTIONS.md` for any new functions
+- [ ] **REQUIRED**: Update `/docs/guide/BLOCK-PATTERNS.md` for new patterns
+- [ ] **REQUIRED**: Update `/docs/guide/TEMPLATES.md` for template changes
+- [ ] **REQUIRED**: Update `/docs/guide/CUSTOMIZATION.md` for new options
+- [ ] **REQUIRED**: Update `/docs/development/API.md` for new hooks/filters
+- [ ] **REQUIRED**: Place documentation in correct folder structure
 - [ ] **REQUIRED**: Include code examples in all documentation
 - [ ] **REQUIRED**: Add screenshots for visual features
 - [ ] **REQUIRED**: Test all documented code examples
-- [ ] **REQUIRED**: Verify all documentation links work
+- [ ] **REQUIRED**: Verify all documentation links work with new structure
 - [ ] **REQUIRED**: Check spelling and grammar in all docs
 - [ ] **REQUIRED**: Follow consistent Markdown formatting
 
