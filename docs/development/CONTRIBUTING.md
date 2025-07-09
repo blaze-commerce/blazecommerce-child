@@ -28,21 +28,21 @@ Thank you for your interest in contributing to the BlazeCommerce Child Theme! Th
 For **every contribution**, you MUST update:
 
 #### New Features
-- [ ] `/docs/FUNCTIONS.md` - Document all new functions with examples
-- [ ] `/docs/BLOCK-PATTERNS.md` - Document new patterns with usage
-- [ ] `/docs/TEMPLATES.md` - Document template changes
-- [ ] `/docs/API.md` - Document new hooks/filters
-- [ ] `/docs/CHANGELOG.md` - Add detailed change entry
+- [ ] `/docs/development/FUNCTIONS.md` - Document all new functions with examples
+- [ ] `/docs/guide/BLOCK-PATTERNS.md` - Document new patterns with usage
+- [ ] `/docs/guide/TEMPLATES.md` - Document template changes
+- [ ] `/docs/development/API.md` - Document new hooks/filters
+- [ ] `/docs/reference/CHANGELOG.md` - Add detailed change entry
 - [ ] `/docs/README.md` - Update if feature affects overview
 
 #### Bug Fixes
-- [ ] `/docs/CHANGELOG.md` - Document the fix
-- [ ] `/docs/TROUBLESHOOTING.md` - Update if relevant
+- [ ] `/docs/reference/CHANGELOG.md` - Document the fix
+- [ ] `/docs/setup/TROUBLESHOOTING.md` - Update if relevant
 - [ ] Relevant feature documentation - Update if behavior changes
 
 #### Documentation Changes
 - [ ] All affected .md files
-- [ ] `/docs/CHANGELOG.md` - Document documentation updates
+- [ ] `/docs/reference/CHANGELOG.md` - Document documentation updates
 
 ## Getting Started
 
@@ -74,6 +74,66 @@ git checkout -b feature/your-feature-name
 # Or for bug fixes
 git checkout -b fix/issue-description
 ```
+
+## Documentation Folder Structure
+
+### Mandatory Organization
+
+All documentation MUST be organized in the following folder structure:
+
+```
+/docs/
+├── README.md                    # Main documentation index
+├── setup/                       # Installation & Configuration
+│   ├── SETUP.md                # Installation guide
+│   └── TROUBLESHOOTING.md      # Common issues and solutions
+├── guide/                       # User Guides
+│   ├── CUSTOMIZATION.md        # Theme customization
+│   ├── BLOCK-PATTERNS.md       # Block patterns guide
+│   ├── TEMPLATES.md            # Template usage
+│   └── ACCESSIBILITY.md        # Accessibility features
+├── development/                 # Developer Documentation
+│   ├── CONTRIBUTING.md         # This file
+│   ├── FUNCTIONS.md            # Custom functions
+│   ├── API.md                  # Hooks and filters
+│   ├── SECURITY.md             # Security practices
+│   └── PERFORMANCE.md          # Performance optimization
+└── reference/                   # Reference Materials
+    └── CHANGELOG.md            # Version history
+```
+
+### Documentation Placement Guidelines
+
+**Setup Documentation** (`/docs/setup/`):
+- Installation procedures
+- Configuration guides
+- Troubleshooting and FAQ
+- Environment setup
+
+**User Guides** (`/docs/guide/`):
+- Theme customization instructions
+- Feature usage guides
+- Block patterns and templates
+- Accessibility information
+
+**Developer Documentation** (`/docs/development/`):
+- Code contribution guidelines
+- API documentation
+- Security best practices
+- Performance optimization
+- Technical implementation details
+
+**Reference Materials** (`/docs/reference/`):
+- Changelog and version history
+- API reference
+- Technical specifications
+
+### Cross-Reference Guidelines
+
+When linking between documentation files:
+- Use relative paths: `../guide/CUSTOMIZATION.md`
+- Always verify links work after reorganization
+- Update all affected files when moving documentation
 
 ## Development Standards
 
@@ -174,10 +234,11 @@ git commit -m "docs: document cart count function
 **MANDATORY CHECKS**:
 - [ ] All code follows WordPress standards
 - [ ] All functions have `blazecommerce_child_` prefix
-- [ ] All relevant documentation files updated
+- [ ] All relevant documentation files updated in correct folders
 - [ ] Code examples tested and working
 - [ ] Screenshots added for visual changes
-- [ ] CHANGELOG.md updated with detailed entry
+- [ ] `/docs/reference/CHANGELOG.md` updated with detailed entry
+- [ ] All documentation links verified and working
 - [ ] All tests passing
 - [ ] No merge conflicts
 
@@ -192,10 +253,12 @@ Brief description of changes
 - Include file names and functions
 
 ## Documentation Updates
-- [ ] FUNCTIONS.md updated
-- [ ] CHANGELOG.md updated
-- [ ] Screenshots added
-- [ ] Code examples tested
+- [ ] Relevant documentation files updated in correct folders
+- [ ] `/docs/development/FUNCTIONS.md` updated (if applicable)
+- [ ] `/docs/reference/CHANGELOG.md` updated
+- [ ] Screenshots added to appropriate guide sections
+- [ ] Code examples tested and verified
+- [ ] All internal links verified and working
 
 ## Testing
 - [ ] WordPress latest version
