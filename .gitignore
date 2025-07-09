@@ -1,3 +1,13 @@
 .DS_Store
 .idea/
 plugins/.DS_Store
+
+# Documentation Images
+# Exclude all image files from docs directory and subdirectories
+# to reduce repository size and avoid binary files in version control
+docs/**/*.jpg
+docs/**/*.jpeg
+docs/**/*.png
+docs/**/*.gif
+docs/**/*.svg
+docs/**/*.webp
