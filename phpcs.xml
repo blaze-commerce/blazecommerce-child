@@ -81,8 +81,8 @@
         <properties>
             <property name="text_domain" type="array">
                 <element value="blazecommerce-child"/>
-            </properties>
-        </rule>
+            </property>
+        </properties>
     </rule>
 
     <!-- File naming -->
