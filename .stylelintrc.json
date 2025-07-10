@@ -1,0 +1,99 @@
+{
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "rules": {
+    "indentation": 2,
+    "string-quotes": "double",
+    "no-duplicate-selectors": true,
+    "color-hex-case": "lower",
+    "color-hex-length": "short",
+    "color-named": "never",
+    "selector-combinator-space-after": "always",
+    "selector-attribute-quotes": "always",
+    "selector-attribute-operator-space-before": "never",
+    "selector-attribute-operator-space-after": "never",
+    "selector-attribute-brackets-space-inside": "never",
+    "declaration-block-trailing-semicolon": "always",
+    "declaration-no-important": true,
+    "declaration-colon-space-before": "never",
+    "declaration-colon-space-after": "always",
+    "number-leading-zero": "always",
+    "function-url-quotes": "always",
+    "font-weight-notation": "numeric",
+    "comment-whitespace-inside": "always",
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "selector-pseudo-element-colon-notation": "double",
+    "selector-pseudo-class-parentheses-space-inside": "never",
+    "media-feature-range-operator-space-before": "always",
+    "media-feature-range-operator-space-after": "always",
+    "media-feature-parentheses-space-inside": "never",
+    "media-feature-colon-space-before": "never",
+    "media-feature-colon-space-after": "always",
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "apply",
+          "variants",
+          "responsive",
+          "screen"
+        ]
+      }
+    ],
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "apply",
+          "variants",
+          "responsive",
+          "screen"
+        ]
+      }
+    ],
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": [
+          "composes"
+        ]
+      }
+    ],
+    "selector-class-pattern": [
+      "^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$",
+      {
+        "message": "Expected class selector to be kebab-case with BEM methodology"
+      }
+    ],
+    "custom-property-pattern": [
+      "^[a-z]([a-z0-9-]+)?$",
+      {
+        "message": "Expected custom property name to be kebab-case"
+      }
+    ],
+    "keyframes-name-pattern": [
+      "^[a-z]([a-z0-9-]+)?$",
+      {
+        "message": "Expected keyframe name to be kebab-case"
+      }
+    ],
+    "max-nesting-depth": 3,
+    "no-descending-specificity": null,
+    "font-family-no-missing-generic-family-keyword": null
+  },
+  "ignoreFiles": [
+    "node_modules/**/*",
+    "vendor/**/*",
+    "coverage/**/*",
+    "**/*.min.css"
+  ]
+}
