@@ -22,20 +22,30 @@ jobs:
           extensions: mbstring, intl
           tools: composer, phpcs, phpcbf
 
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.composer
+          key: ${{ runner.os }}-composer-global-${{ hashFiles('composer.json') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-global-
+
       - name: Install PHP dependencies
         run: |
-          # Install WordPress Coding Standards
-          composer global require "squizlabs/php_codesniffer=*"
-          composer global require "wp-coding-standards/wpcs"
-          composer global require "phpcompatibility/phpcompatibility-wp"
-          
+          # Install WordPress Coding Standards globally with explicit plugin allowance
+          composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+          composer global require "squizlabs/php_codesniffer:^3.7"
+          composer global require "wp-coding-standards/wpcs:^3.0"
+          composer global require "phpcompatibility/phpcompatibility-wp:^2.1"
+          composer global require "dealerdirect/phpcodesniffer-composer-installer:^1.0"
+
           # Set installed paths
-          phpcs --config-set installed_paths ~/.composer/vendor/wp-coding-standards/wpcs,~/.composer/vendor/phpcompatibility/phpcompatibility-wp
+          ~/.composer/vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/wp-coding-standards/wpcs,~/.composer/vendor/phpcompatibility/phpcompatibility-wp
 
       - name: Run PHP CodeSniffer
         run: |
           # Check WordPress coding standards
-          phpcs --standard=WordPress \
+          ~/.composer/vendor/bin/phpcs --standard=WordPress \
             --extensions=php \
             --ignore=*/vendor/*,*/node_modules/*,*/class-tgm-plugin-activation.php \
             --report=summary \
@@ -45,7 +55,7 @@ jobs:
       - name: Run PHP Compatibility Check
         run: |
           # Check PHP 8.0+ compatibility
-          phpcs --standard=PHPCompatibilityWP \
+          ~/.composer/vendor/bin/phpcs --standard=PHPCompatibilityWP \
             --extensions=php \
             --ignore=*/vendor/*,*/node_modules/*,*/class-tgm-plugin-activation.php \
             --runtime-set testVersion 8.0- \
@@ -68,7 +78,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run Stylelint
         run: |
@@ -92,7 +102,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Validate theme structure
         run: npm run validate
