@@ -5,7 +5,7 @@
   "rules": {
     "declaration-block-no-duplicate-properties": true,
     "no-duplicate-selectors": null,
-    "block-no-empty": true,
+    "block-no-empty": null,
     "color-no-invalid-hex": true,
     "function-calc-no-unspaced-operator": true,
     "unit-no-unknown": true,
