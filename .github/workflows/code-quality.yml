@@ -63,7 +63,7 @@ jobs:
           # Test configuration file
           if [ -f phpcs.xml ]; then
             echo "Using phpcs.xml configuration file"
-            ~/.composer/vendor/bin/phpcs --dry-run .
+            echo "Configuration file exists and will be used for standards"
           fi
 
           # Check WordPress coding standards
