@@ -1,0 +1,83 @@
+# Version control
+.git/
+.github/
+.gitignore
+
+# Development files
+node_modules/
+package.json
+package-lock.json
+yarn.lock
+scripts/
+*.log
+
+# Documentation (remove this line if you want docs in releases)
+docs/
+README.md
+
+# Test files
+tests/
+phpunit.xml
+coverage/
+*.test.php
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+releases/
+
+# Augment files
+.augment/
+.augmentignore
+.augment-guidelines
+
+# Linting configs
+.eslintrc*
+.stylelintrc*
+phpcs.xml
+phpcs.xml.dist
+.phpcs.xml
+.phpcs.xml.dist
+
+# Composer development files
+composer.json
+composer.lock
+vendor/
+
+# NPM/Yarn files
+.npmrc
+.yarnrc
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Backup files
+*.bak
+*.backup
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+
+# This file itself
+.zipignore
