@@ -116,8 +116,8 @@ li.bc-extended-mega-menu ul li {
 
 #mega-menu-wrap-max_mega_menu_1 #mega-menu-max_mega_menu_1 li.mega-menu-item-has-children>a.mega-menu-link>span.mega-indicator:after {
   background-color: #040711;
-  -webkit-mask-image: url(../images/chevron-down.svg);
-  mask-image: url(../images/chevron-down.svg);
+  -webkit-mask-image: url("../images/chevron-down.svg");
+  mask-image: url("../images/chevron-down.svg");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
@@ -131,13 +131,7 @@ li.bc-extended-mega-menu ul li {
 
 
 
-@media (max-width: 320px) {}
-
-@media (max-width: 425px) {}
-
-@media (max-width: 525px) {}
-
-@media (max-width: 768px) {}
+/* Media queries for responsive design - placeholder for future styles */
 
 @media (max-width: 1024px) {
 
@@ -202,7 +196,7 @@ li.bc-extended-mega-menu ul li {
   #mega-menu-wrap-max_mega_menu_1 #mega-menu-max_mega_menu_1 li.mega-menu-item-has-children>a.mega-menu-link>span.mega-indicator:after {
     content: '' !important;
     display: inline-block;
-    background-image: url(../images/chevron-down.svg) !important;
+    background-image: url("../images/chevron-down.svg") !important;
     background-size: contain !important;
     background-repeat: no-repeat !important;
     width: 24px !important;

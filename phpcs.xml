@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<ruleset name="BlazeCommerce Child Theme">
+    <description>PHP CodeSniffer configuration for BlazeCommerce Child Theme</description>
+
+    <!-- Files to check -->
+    <file>.</file>
+
+    <!-- Exclude patterns -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/coverage/*</exclude-pattern>
+    <exclude-pattern>*/.git/*</exclude-pattern>
+    <exclude-pattern>*/class-tgm-plugin-activation.php</exclude-pattern>
+
+    <!-- Use WordPress coding standards -->
+    <rule ref="WordPress">
+        <!-- Allow short array syntax -->
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+        
+        <!-- Allow short open tags in templates -->
+        <exclude name="Generic.PHP.DisallowShortOpenTag.EchoFound"/>
+        
+        <!-- Relax some documentation requirements -->
+        <exclude name="Squiz.Commenting.FileComment.Missing"/>
+        <exclude name="Squiz.Commenting.ClassComment.Missing"/>
+        <exclude name="Squiz.Commenting.FunctionComment.Missing"/>
+        
+        <!-- Allow WordPress naming conventions -->
+        <exclude name="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid"/>
+        <exclude name="WordPress.NamingConventions.ValidVariableName.PropertyNotSnakeCase"/>
+    </rule>
+
+    <!-- Use WordPress-Extra rules -->
+    <rule ref="WordPress-Extra">
+        <!-- Allow short array syntax -->
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+    </rule>
+
+    <!-- Use WordPress-Docs rules -->
+    <rule ref="WordPress-Docs">
+        <!-- Relax documentation requirements for small functions -->
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
+    </rule>
+
+    <!-- Check for PHP compatibility -->
+    <rule ref="PHPCompatibilityWP"/>
+
+    <!-- Set minimum PHP version -->
+    <config name="minimum_supported_wp_version" value="6.0"/>
+    <config name="testVersion" value="8.0-"/>
+
+    <!-- Show progress -->
+    <arg value="p"/>
+
+    <!-- Show colors -->
+    <arg name="colors"/>
+
+    <!-- Show sniff codes -->
+    <arg value="s"/>
+
+    <!-- Check file extensions -->
+    <arg name="extensions" value="php"/>
+
+    <!-- Parallel processing -->
+    <arg name="parallel" value="8"/>
+
+    <!-- Custom rules for theme development -->
+    <rule ref="WordPress.Security.EscapeOutput"/>
+    <rule ref="WordPress.Security.NonceVerification"/>
+    <rule ref="WordPress.Security.ValidatedSanitizedInput"/>
+    
+    <!-- Allow some WordPress globals -->
+    <rule ref="WordPress.WP.GlobalVariablesOverride">
+        <exclude-pattern>*/functions.php</exclude-pattern>
+    </rule>
+
+    <!-- Text domain verification -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="blazecommerce-child"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- File naming -->
+    <rule ref="WordPress.Files.FileName">
+        <properties>
+            <property name="strict_class_file_names" value="false"/>
+        </properties>
+    </rule>
+
+    <!-- Hook naming -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="blaze"/>
+                <element value="blazecommerce"/>
+            </property>
+        </properties>
+    </rule>
+</ruleset>
