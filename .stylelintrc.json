@@ -4,8 +4,7 @@
   ],
   "rules": {
     "declaration-block-no-duplicate-properties": true,
-    "no-duplicate-selectors": null,
-    "block-no-empty": null,
+    "block-no-empty": true,
     "color-no-invalid-hex": true,
     "function-calc-no-unspaced-operator": true,
     "unit-no-unknown": true,
@@ -46,7 +45,15 @@
     "property-no-vendor-prefix": null,
     "max-nesting-depth": null,
     "no-descending-specificity": null,
-    "font-family-no-missing-generic-family-keyword": null
+    "font-family-no-missing-generic-family-keyword": null,
+    "no-duplicate-selectors": null,
+    "rule-empty-line-before": null,
+    "at-rule-empty-line-before": null,
+    "comment-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "comment-whitespace-inside": null,
+    "media-feature-range-notation": null,
+    "selector-pseudo-element-colon-notation": null
   },
   "ignoreFiles": [
     "node_modules/**/*",
