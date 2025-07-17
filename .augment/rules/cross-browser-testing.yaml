@@ -2,6 +2,7 @@
 type: "always_apply"
 priority: 1
 scope: "all_repositories"
+description: "Cross-browser testing requirements for Next.js applications"
 ---
 
 # Cross-Browser Testing Requirements for Next.js Applications

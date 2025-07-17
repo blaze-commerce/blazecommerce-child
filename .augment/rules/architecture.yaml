@@ -1,5 +1,7 @@
 ---
 type: "agent_requested"
+priority: 2
+scope: "blazecommerce_child"
 description: "Architectural patterns for WordPress child theme development"
 ---
 

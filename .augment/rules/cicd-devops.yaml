@@ -1,5 +1,7 @@
 ---
 type: "agent_requested"
+priority: 2
+scope: "blazecommerce_child"
 description: "CI/CD practices for WordPress child theme development"
 ---
 
