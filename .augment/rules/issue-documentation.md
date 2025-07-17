@@ -1,66 +1,75 @@
-# Issue Documentation Rule
+# Issue Documentation Requirements - BlazeCommerce Child Theme
 
-**Priority: ALWAYS**
+## 🚨 MANDATORY Documentation Tracking
 
-**Description:** Mandate comprehensive documentation of all issues, tests, and resolutions for AI learning and institutional knowledge.
+### ALWAYS Priority Requirements
+- **ALWAYS**: Document every change, prompt, or conversation in Augment for context preservation
+- **ALWAYS**: Test and validate all changes made through Augment interactions
+- **ALWAYS**: Record all AI-assisted development activities for institutional knowledge
 
-## Core Requirements
+## 📋 Required Documentation
 
-### 1. Documentation Template
-```markdown
-# Issue: [Brief Description]
+### For Every Issue/Feature/Change
+1. **Problem Statement**: Clear description of issue or need
+2. **Solution Approach**: Detailed explanation of proposed solution
+3. **Implementation Details**: Technical specifications and requirements
+4. **Testing Plan**: How solution will be tested and validated
+5. **Documentation Updates**: What documentation needs creation/updates
 
-## Problem
-- **Symptoms**: What was observed
-- **Impact**: Functionality affected
-- **Environment**: WordPress/PHP/theme versions
+### Documentation Locations
+- **Issue Documentation**: `/.docs/issues/`
+- **Feature Documentation**: `/.docs/features/`
+- **Change Documentation**: `/.docs/changes/`
+- **Theme Documentation**: `/.docs/theme/`
+- **WordPress Documentation**: `/.docs/wordpress/`
+- **Summary Documents**: `/.docs/summaries/`
+- **Reports**: `/.docs/reports/`
 
-## Root Cause
-- **Investigation**: What was checked
-- **Findings**: What was discovered
-- **Cause**: Underlying issue
+## 🔄 Mandatory Process
 
-## Solution
-- **Steps**: Resolution process
-- **Code**: Specific changes made
-- **Testing**: Verification method
+### Before Starting Work
+1. Create issue documentation file in appropriate `/.docs/` directory
+2. Document problem statement and proposed solution
+3. Outline implementation approach and technical requirements
+4. Define testing criteria and acceptance criteria
+5. Identify all documentation requiring updates
 
-## Prevention
-- **Monitoring**: Detection method
-- **Guidelines**: Prevention measures
-```
+### During Development
+1. Update issue documentation with progress and changes
+2. Document deviations from original plan
+3. Record technical decisions or trade-offs
+4. Update relevant theme/WordPress documentation in real-time
 
-### 2. WordPress Child Theme Focus
-- theme.json configuration issues
-- Block pattern/template problems
-- WooCommerce template conflicts
-- Hook/filter implementations
-- Custom post type issues
-- Performance optimizations
-- Security vulnerabilities
+### Before Closing Issue
+1. Verify all documentation complete and accurate
+2. Test all code examples in documentation
+3. Update related documentation affected by changes
 
-### 3. Security Compliance (CRITICAL)
-- **NEVER** include credentials, API keys, tokens, passwords
-- **NEVER** include database strings or server details
-- **NEVER** include user personal information
-- Use placeholder: `[REPLACE_WITH_ACTUAL_VALUE_FROM_USER_CREDENTIALS]`
-- Sanitize code examples, remove production URLs, anonymize data
+## ✅ Quality Standards
 
-### 4. File Organization
-- **Location**: `/.augment/rules/issues/` (primary), `/docs/troubleshooting/` (backup)
-- **Naming**: `YYYY-MM-DD-issue-brief-description.md`
-- **Format**: Markdown with descriptive names
+### Content Requirements
+- Clear, concise language
+- Step-by-step instructions where applicable
+- PHP code examples with proper syntax highlighting
+- Screenshots/diagrams for UI changes
+- Links to related documentation
+- Version information and dates
 
-### 5. Workflow Integration
-- Document issues during development
-- Include resolution in commit messages
-- Reference in pull requests
-- Document test cases revealing issues
-- Note performance impact
+### Format Standards
+- Markdown format for all documentation
+- Consistent heading structure (H1 for title, H2 for sections)
+- Table of contents for longer documents
+- Proper code block formatting with language specification
+- Cross-references to related documents
 
-## Enforcement
-**ALWAYS** priority - cannot be bypassed. Ensures:
-1. Institutional knowledge preservation
-2. AI pattern recognition
-3. Quality improvement
-4. Team efficiency
+## 🚫 Enforcement Rules
+
+### No Exceptions Policy
+- **Issues without proper documentation** will not be accepted
+- **Pull requests must include documentation updates**
+- **Code reviews must verify documentation completeness**
+- **No deployment without complete documentation**
+- **All summary documents must be in `/.docs/summaries/`**
+
+---
+**Priority**: ALWAYS | **Scope**: BlazeCommerce Child Theme | **Enforcement**: Mandatory
