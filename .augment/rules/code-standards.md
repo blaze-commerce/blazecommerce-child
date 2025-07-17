@@ -1,8 +1,9 @@
+---
+type: "agent_requested"
+description: "Code quality standards for WordPress child theme development"
+---
+
 # Code Quality Standards Rule
-
-**Priority: Auto**
-
-**Description:** Enforce consistent code quality standards for WordPress child theme development.
 
 ## PHP Standards
 

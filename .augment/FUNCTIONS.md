@@ -1,3 +1,8 @@
+---
+type: "agent_requested"
+description: "Functions reference for BlazeCommerce child theme development"
+---
+
 # Functions Reference - BlazeCommerce Child Theme
 
 ## 🚀 Theme Setup Functions

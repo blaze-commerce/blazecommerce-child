@@ -1,3 +1,8 @@
+---
+type: "agent_requested"
+description: "Performance optimization guidelines for BlazeCommerce child theme"
+---
+
 # Performance Optimization - BlazeCommerce Child Theme
 
 ## 🎯 Key Metrics & Targets

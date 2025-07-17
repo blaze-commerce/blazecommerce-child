@@ -1,8 +1,10 @@
+---
+type: "always_apply"
+priority: 1
+scope: "blazecommerce_child"
+---
+
 # Security Guidelines Rule
-
-**Priority: ALWAYS**
-
-**Description:** Enforce strict security practices for WordPress child theme development.
 
 ## Credential Protection (CRITICAL)
 

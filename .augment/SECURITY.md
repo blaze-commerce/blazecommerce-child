@@ -1,3 +1,9 @@
+---
+type: "always_apply"
+priority: 1
+scope: "blazecommerce_child"
+---
+
 # Security Guidelines - BlazeCommerce Child Theme
 
 ## 🔒 Core Security Principles

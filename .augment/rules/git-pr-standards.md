@@ -1,8 +1,9 @@
+---
+type: "agent_requested"
+description: "Git workflow and PR standards for WordPress child theme development"
+---
+
 # Git & PR Standards Rule
-
-**Priority: Auto**
-
-**Description:** Enforce consistent Git workflow and PR standards for WordPress child theme development.
 
 ## Conventional Commits
 

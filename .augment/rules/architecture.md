@@ -1,8 +1,9 @@
+---
+type: "agent_requested"
+description: "Architectural patterns for WordPress child theme development"
+---
+
 # Architecture Guidelines Rule
-
-**Priority: Auto**
-
-**Description:** Define architectural patterns for WordPress child theme development.
 
 ## Directory Structure
 ```

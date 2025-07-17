@@ -1,8 +1,9 @@
+---
+type: "agent_requested"
+description: "Testing standards for WordPress child theme development"
+---
+
 # Testing Requirements Rule
-
-**Priority: Auto**
-
-**Description:** Establish testing standards for WordPress child theme development.
 
 ## Testing Framework
 

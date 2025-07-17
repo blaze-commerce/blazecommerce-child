@@ -1,3 +1,9 @@
+---
+type: "always_apply"
+priority: 1
+scope: "blazecommerce_child"
+---
+
 # Issue Documentation Requirements - BlazeCommerce Child Theme
 
 ## 🚨 MANDATORY Documentation Tracking

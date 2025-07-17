@@ -1,3 +1,8 @@
+---
+type: "agent_requested"
+description: "API reference for BlazeCommerce child theme hooks and functions"
+---
+
 # API Reference - BlazeCommerce Child Theme
 
 ## 🔗 Action Hooks

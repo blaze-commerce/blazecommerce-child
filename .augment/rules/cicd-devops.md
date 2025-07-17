@@ -1,8 +1,9 @@
+---
+type: "agent_requested"
+description: "CI/CD practices for WordPress child theme development"
+---
+
 # CI/CD & DevOps Standards Rule
-
-**Priority: Auto**
-
-**Description:** Establish CI/CD practices for WordPress child theme development.
 
 ## GitHub Actions Workflows
 
