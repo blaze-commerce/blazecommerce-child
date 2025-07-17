@@ -1,3 +1,7 @@
+# Allow YAML files in .augment directories
+!.augment/**/*.yaml
+!.augment/**/*.yml
+
 .DS_Store
 .idea/
 plugins/.DS_Store

@@ -1,33 +1,23 @@
-# Functions Reference
+---
+type: "agent_requested"
+description: "Functions reference for BlazeCommerce child theme development"
+---
 
-This document provides comprehensive documentation for all custom functions in the BlazeCommerce Child Theme.
+# Functions Reference - BlazeCommerce Child Theme
 
-## Table of Contents
-
-1. [Theme Setup Functions](#theme-setup-functions)
-2. [Enqueue Functions](#enqueue-functions)
-3. [Customizer Functions](#customizer-functions)
-4. [WooCommerce Functions](#woocommerce-functions)
-5. [Utility Functions](#utility-functions)
-6. [Hook Reference](#hook-reference)
-
-## Theme Setup Functions
+## 🚀 Theme Setup Functions
 
 ### `blazecommerce_child_setup()`
+**Main theme setup function - configures features and support**
 
-**Description**: Main theme setup function that configures theme features and support.
-
-**Location**: `functions.php`
-
-**Usage**:
 ```php
 function blazecommerce_child_setup() {
-    // Add theme support for various features
+    // Theme support
     add_theme_support('post-thumbnails');
     add_theme_support('custom-logo');
     add_theme_support('html5', array('search-form', 'comment-form', 'comment-list'));
-    
-    // Register navigation menus
+
+    // Navigation menus
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'blazecommerce-child'),
         'footer' => __('Footer Menu', 'blazecommerce-child'),
@@ -36,30 +26,15 @@ function blazecommerce_child_setup() {
 add_action('after_setup_theme', 'blazecommerce_child_setup');
 ```
 
-**Parameters**: None
-
-**Return**: void
-
-**Since**: 1.0.0
-
----
-
-## Enqueue Functions
+## 📦 Enqueue Functions
 
 ### `blazecommerce_child_enqueue_styles()`
+**Properly enqueues parent and child theme stylesheets**
 
-**Description**: Properly enqueues parent and child theme stylesheets.
-
-**Location**: `functions.php`
-
-**Usage**:
 ```php
 function blazecommerce_child_enqueue_styles() {
-    // Enqueue parent theme stylesheet
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
-    
-    // Enqueue child theme stylesheet with parent as dependency
-    wp_enqueue_style('child-style', 
+    wp_enqueue_style('child-style',
         get_stylesheet_directory_uri() . '/style.css',
         array('parent-style'),
         wp_get_theme()->get('Version')
@@ -68,27 +43,12 @@ function blazecommerce_child_enqueue_styles() {
 add_action('wp_enqueue_scripts', 'blazecommerce_child_enqueue_styles');
 ```
 
-**Parameters**: None
-
-**Return**: void
-
-**Since**: 1.0.0
-
-**Notes**: 
-- Parent stylesheet is loaded first as dependency
-- Child theme version is used for cache busting
-- Follows WordPress best practices for child themes
-
 ### `blazecommerce_child_enqueue_scripts()`
+**Enqueues custom JavaScript files**
 
-**Description**: Enqueues custom JavaScript files for the theme.
-
-**Location**: `functions.php`
-
-**Usage**:
 ```php
 function blazecommerce_child_enqueue_scripts() {
-    wp_enqueue_script('blazecommerce-child-script', 
+    wp_enqueue_script('blazecommerce-child-script',
         get_stylesheet_directory_uri() . '/js/script.js',
         array('jquery'),
         wp_get_theme()->get('Version'),
@@ -98,38 +58,25 @@ function blazecommerce_child_enqueue_scripts() {
 add_action('wp_enqueue_scripts', 'blazecommerce_child_enqueue_scripts');
 ```
 
-**Parameters**: None
-
-**Return**: void
-
-**Since**: 1.0.0
-
----
-
-## Customizer Functions
+## 🎨 Customizer Functions
 
 ### `blazecommerce_child_customize_register()`
+**Registers custom theme options in WordPress Customizer**
 
-**Description**: Registers custom theme options in WordPress Customizer.
-
-**Location**: `functions.php`
-
-**Usage**:
 ```php
 function blazecommerce_child_customize_register($wp_customize) {
-    // Add custom section
+    // Custom section
     $wp_customize->add_section('blazecommerce_child_options', array(
         'title' => __('BlazeCommerce Options', 'blazecommerce-child'),
         'priority' => 30,
     ));
-    
-    // Add custom setting
+
+    // Custom setting & control
     $wp_customize->add_setting('blazecommerce_child_accent_color', array(
         'default' => '#007cba',
         'sanitize_callback' => 'sanitize_hex_color',
     ));
-    
-    // Add custom control
+
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'blazecommerce_child_accent_color', array(
         'label' => __('Accent Color', 'blazecommerce-child'),
         'section' => 'blazecommerce_child_options',
@@ -138,24 +85,11 @@ function blazecommerce_child_customize_register($wp_customize) {
 add_action('customize_register', 'blazecommerce_child_customize_register');
 ```
 
-**Parameters**: 
-- `$wp_customize` (WP_Customize_Manager): WordPress Customizer manager object
-
-**Return**: void
-
-**Since**: 1.0.0
-
----
-
-## WooCommerce Functions
+## 🛒 WooCommerce Functions
 
 ### `blazecommerce_child_woocommerce_setup()`
+**Configures WooCommerce theme support and features**
 
-**Description**: Configures WooCommerce theme support and features.
-
-**Location**: `functions.php`
-
-**Usage**:
 ```php
 function blazecommerce_child_woocommerce_setup() {
     add_theme_support('woocommerce');
@@ -166,19 +100,9 @@ function blazecommerce_child_woocommerce_setup() {
 add_action('after_setup_theme', 'blazecommerce_child_woocommerce_setup');
 ```
 
-**Parameters**: None
-
-**Return**: void
-
-**Since**: 1.0.0
-
 ### `blazecommerce_child_woocommerce_cart_count()`
+**Returns current cart item count**
 
-**Description**: Returns the current cart item count for display.
-
-**Location**: `functions.php`
-
-**Usage**:
 ```php
 function blazecommerce_child_woocommerce_cart_count() {
     if (function_exists('WC')) {
@@ -187,28 +111,14 @@ function blazecommerce_child_woocommerce_cart_count() {
     return 0;
 }
 
-// Usage in templates
-$cart_count = blazecommerce_child_woocommerce_cart_count();
-echo sprintf(__('Cart (%d)', 'blazecommerce-child'), $cart_count);
+// Usage: $cart_count = blazecommerce_child_woocommerce_cart_count();
 ```
 
-**Parameters**: None
-
-**Return**: int - Number of items in cart
-
-**Since**: 1.0.0
-
----
-
-## Utility Functions
+## 🔧 Utility Functions
 
 ### `blazecommerce_child_get_theme_option()`
+**Retrieves theme customizer options with fallback defaults**
 
-**Description**: Retrieves theme customizer options with fallback defaults.
-
-**Location**: `functions.php`
-
-**Usage**:
 ```php
 function blazecommerce_child_get_theme_option($option_name, $default = '') {
     return get_theme_mod($option_name, $default);
@@ -219,21 +129,9 @@ $accent_color = blazecommerce_child_get_theme_option('blazecommerce_child_accent
 $logo_url = blazecommerce_child_get_theme_option('custom_logo');
 ```
 
-**Parameters**:
-- `$option_name` (string): Name of the theme option
-- `$default` (mixed): Default value if option doesn't exist
-
-**Return**: mixed - Theme option value or default
-
-**Since**: 1.0.0
-
 ### `blazecommerce_child_is_woocommerce_page()`
+**Checks if current page is WooCommerce-related**
 
-**Description**: Checks if current page is a WooCommerce page.
-
-**Location**: `functions.php`
-
-**Usage**:
 ```php
 function blazecommerce_child_is_woocommerce_page() {
     if (function_exists('is_woocommerce')) {
@@ -241,82 +139,38 @@ function blazecommerce_child_is_woocommerce_page() {
     }
     return false;
 }
-
-// Usage in templates
-if (blazecommerce_child_is_woocommerce_page()) {
-    // WooCommerce specific code
-}
+// Usage: if (blazecommerce_child_is_woocommerce_page()) { /* WooCommerce code */ }
 ```
 
-**Parameters**: None
-
-**Return**: bool - True if WooCommerce page, false otherwise
-
-**Since**: 1.0.0
-
 ### `blaze_disable_action_scheduler_for_staging()`
+**Disables Action Scheduler on staging domains (.blz.onl)**
 
-**Description**: Conditionally disables Action Scheduler background processing on staging domains containing `.blz.onl` to prevent unnecessary resource usage and potential conflicts.
-
-**Location**: `functions.php`
-
-**Usage**:
 ```php
 function blaze_disable_action_scheduler_for_staging() {
-    // Check if the current domain contains .blz.onl
     $current_domain = $_SERVER['HTTP_HOST'] ?? '';
-
     if (strpos($current_domain, '.blz.onl') !== false) {
-        // Disable Action Scheduler queue runner interval
         add_filter('action_scheduler_queue_runner_interval', '__return_false');
-
-        // Disable Action Scheduler default runner
         add_filter('action_scheduler_disable_default_runner', '__return_true');
     }
 }
 add_action('init', 'blaze_disable_action_scheduler_for_staging');
 ```
 
-**Parameters**: None
-
-**Return**: void
-
-**Since**: 1.0.1
-
-**Filters Applied**:
-- `action_scheduler_queue_runner_interval`: Set to `false` to disable queue processing intervals
-- `action_scheduler_disable_default_runner`: Set to `true` to disable the default background runner
-
-**Domain Detection**: Only activates when `$_SERVER['HTTP_HOST']` contains `.blz.onl`
-
----
-
-## Hook Reference
+## 🔗 Hook Reference
 
 ### Action Hooks
+- **`blazecommerce_child_header_before`**: Fires before header content
+- **`blazecommerce_child_footer_after`**: Fires after footer content
 
-#### `blazecommerce_child_header_before`
-**Description**: Fires before the header content
-**Location**: `parts/header.html`
-**Usage**:
 ```php
 add_action('blazecommerce_child_header_before', 'my_custom_header_content');
-```
-
-#### `blazecommerce_child_footer_after`
-**Description**: Fires after the footer content
-**Location**: `parts/footer.html`
-**Usage**:
-```php
 add_action('blazecommerce_child_footer_after', 'my_custom_footer_content');
 ```
 
 ### Filter Hooks
+- **`blazecommerce_child_theme_options`**: Filters theme options array
+- **`blazecommerce_child_enqueue_styles`**: Filters styles to be enqueued
 
-#### `blazecommerce_child_theme_options`
-**Description**: Filters theme options array
-**Parameters**: `$options` (array)
-**Usage**:
 ```php
 add_filter('blazecommerce_child_theme_options', function($options) {
     $options['new_option'] = 'default_value';
@@ -324,40 +178,19 @@ add_filter('blazecommerce_child_theme_options', function($options) {
 });
 ```
 
-#### `blazecommerce_child_enqueue_styles`
-**Description**: Filters styles to be enqueued
-**Parameters**: `$styles` (array)
-**Usage**:
-```php
-add_filter('blazecommerce_child_enqueue_styles', function($styles) {
-    $styles['custom-style'] = get_stylesheet_directory_uri() . '/css/custom.css';
-    return $styles;
-});
-```
+## 📝 Function Standards
+
+### Naming Conventions
+1. **Prefix**: `blazecommerce_child_` for all functions
+2. **Descriptive**: Clear purpose in function name
+3. **Consistent**: Similar patterns for similar functions
+4. **No Conflicts**: Prefixing prevents theme/plugin conflicts
+
+### Adding New Functions
+1. Follow naming conventions with proper prefix
+2. Add PHPDoc comments (description, parameters, return)
+3. Update this documentation with examples
+4. Test thoroughly before committing
 
 ---
-
-## Function Naming Conventions
-
-All custom functions follow these naming conventions:
-
-1. **Prefix**: All functions start with `blazecommerce_child_`
-2. **Descriptive**: Function names clearly describe their purpose
-3. **Consistent**: Similar functions use consistent naming patterns
-4. **No Conflicts**: Prefixing prevents conflicts with other themes/plugins
-
-## Adding New Functions
-
-When adding new functions:
-
-1. **Follow naming conventions** with `blazecommerce_child_` prefix
-2. **Add PHPDoc comments** with description, parameters, return values
-3. **Update this documentation** with function details and examples
-4. **Include usage examples** for complex functions
-5. **Test thoroughly** before committing
-
----
-
-**Last Updated**: December 2024  
-**Version**: 1.0.1  
-**Maintained by**: BlazeCommerce Team
+**Optimized**: July 2025 | **Focus**: Theme setup, WooCommerce, customizer, utility functions

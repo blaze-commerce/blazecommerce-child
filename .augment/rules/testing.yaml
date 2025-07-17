@@ -1,0 +1,208 @@
+---
+type: "agent_requested"
+description: "Testing standards for WordPress child theme development"
+---
+
+# Testing Requirements Rule
+
+## Testing Framework
+
+### PHPUnit Requirements (80% coverage)
+```php
+// Example PHPUnit test
+class BlazeCommerceThemeTest extends WP_UnitTestCase {
+    public function test_blazecommerce_get_product_data() {
+        $product_id = $this->factory->post->create(array('post_type' => 'product'));
+        $result = blazecommerce_get_product_data($product_id);
+        $this->assertIsArray($result);
+        $this->assertArrayHasKey('price', $result);
+    }
+}
+```
+
+### JavaScript Testing (Jest)
+```javascript
+describe('Product Gallery', () => {
+    test('should initialize with first image active', () => {
+        const gallery = new ProductGallery('.product-gallery');
+        expect(gallery.getActiveImage()).toBe(0);
+    });
+});
+```
+
+### Testing Requirements
+- Unit tests for custom functions
+- Integration tests for WordPress/WooCommerce
+- End-to-end workflow testing
+- Cross-browser compatibility
+- Accessibility compliance
+
+## WordPress Testing
+
+### Theme & WooCommerce Testing
+```php
+// Theme functionality
+public function test_theme_setup() {
+    $this->assertTrue(current_theme_supports('post-thumbnails'));
+    $this->assertTrue(current_theme_supports('woocommerce'));
+}
+
+// WooCommerce integration
+public function test_woocommerce_integration() {
+    $this->assertTrue(class_exists('WooCommerce'));
+    $product = wc_get_product($this->create_test_product());
+    $custom_data = blazecommerce_get_custom_product_data($product->get_id());
+    $this->assertNotEmpty($custom_data);
+}
+
+// Block registration
+public function test_custom_blocks_registered() {
+    $registered_blocks = WP_Block_Type_Registry::get_instance()->get_all_registered();
+    $required_blocks = array('blazecommerce/product-showcase', 'blazecommerce/hero-banner');
+    foreach ($required_blocks as $block_name) {
+        $this->assertArrayHasKey($block_name, $registered_blocks);
+    }
+}
+```
+```
+
+### Block Testing
+```php
+// Block metadata compliance
+public function test_block_metadata_compliance() {
+    $blocks_dir = get_template_directory() . '/blocks';
+    $block_dirs = glob($blocks_dir . '/*', GLOB_ONLYDIR);
+    foreach ($block_dirs as $block_dir) {
+        $block_json_path = $block_dir . '/block.json';
+        $this->assertFileExists($block_json_path);
+        $block_data = json_decode(file_get_contents($block_json_path), true);
+        $required_fields = array('apiVersion', 'name', 'title', 'supports', 'attributes');
+        foreach ($required_fields as $field) {
+            $this->assertArrayHasKey($field, $block_data);
+        }
+    }
+}
+
+// Block patterns
+public function test_block_patterns_registered() {
+    $patterns = WP_Block_Patterns_Registry::get_instance()->get_all_registered();
+    $blazecommerce_patterns = array_filter($patterns, function($pattern) {
+        return strpos($pattern['name'], 'blazecommerce/') === 0;
+    });
+    $this->assertNotEmpty($blazecommerce_patterns);
+}
+
+// Block accessibility
+public function test_block_accessibility() {
+    $post_id = $this->factory->post->create(array(
+        'post_content' => '<!-- wp:blazecommerce/product-showcase {"uniqueId":"test-showcase"} -->
+    ));
+    $content = get_post_field('post_content', $post_id);
+    $rendered_content = do_blocks($content);
+    $this->assertStringContains('id="test-showcase"', $rendered_content);
+    $this->assertStringContains('aria-', $rendered_content);
+}
+```
+
+## Performance, Security & Accessibility
+
+### Performance Testing
+```php
+// Page load performance
+public function test_page_load_performance() {
+    $start_time = microtime(true);
+    $this->go_to(home_url());
+    $load_time = microtime(true) - $start_time;
+    $this->assertLessThan(2.0, $load_time);
+}
+
+// Database query efficiency
+public function test_database_queries() {
+    $queries_before = get_num_queries();
+    blazecommerce_get_featured_products(8);
+    $query_count = get_num_queries() - $queries_before;
+    $this->assertLessThan(5, $query_count);
+}
+```
+
+### Security Testing
+```php
+// Input sanitization
+public function test_input_sanitization() {
+    $malicious_input = '<script>alert("xss")</script>';
+    $sanitized = blazecommerce_sanitize_user_input($malicious_input);
+    $this->assertStringNotContainsString('<script>', $sanitized);
+}
+
+// User permissions
+public function test_user_permissions() {
+    $user = $this->factory->user->create(array('role' => 'subscriber'));
+    wp_set_current_user($user);
+    $this->assertFalse(blazecommerce_user_can_manage_products());
+}
+```
+
+### Accessibility Testing
+```javascript
+// Automated accessibility
+describe('Accessibility', () => {
+    test('should have no violations', async () => {
+        const results = await axe.run();
+        expect(results.violations).toHaveLength(0);
+    });
+});
+```
+
+**Manual Testing Requirements:**
+- Cross-browser compatibility (Chrome, Firefox, Safari, Edge)
+- Mobile device testing and responsive design
+- Keyboard navigation and screen reader compatibility
+
+## Test Organization & CI/CD
+
+### Directory Structure
+```
+tests/
+├── unit/          # Unit tests (functions, classes, helpers)
+├── integration/   # Integration tests (WooCommerce, blocks, templates)
+├── e2e/          # End-to-end tests
+├── fixtures/     # Test data
+└── bootstrap.php # Test bootstrap
+```
+
+### Continuous Testing
+```yaml
+# GitHub Actions workflow
+name: Run Tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+      - name: Run PHPUnit Tests
+        run: vendor/bin/phpunit
+```
+
+### Test Data Management
+```php
+// Test setup
+public function setUp(): void {
+    parent::setUp();
+    $this->test_product = $this->factory->post->create(array(
+        'post_type' => 'product',
+        'post_title' => 'Test Product',
+        'post_status' => 'publish'
+    ));
+}
+```
+
+**Requirements:**
+- 80% minimum test coverage
+- Automated test execution on CI/CD
+- Clean test data management
+- Descriptive test naming conventions

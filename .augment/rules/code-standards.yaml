@@ -1,0 +1,280 @@
+---
+type: "agent_requested"
+description: "Code quality standards for WordPress child theme development"
+---
+
+# Code Quality Standards Rule
+
+## PHP Standards
+
+### WordPress Coding Standards
+- Follow WordPress PHP Coding Standards exactly
+- Use tabs for indentation, meaningful names with theme prefix
+- Implement proper error handling and PHPDoc comments
+
+```php
+// ✅ Good
+function blazecommerce_get_product_data($product_id) {
+    if (!is_numeric($product_id)) {
+        return false;
+    }
+    return get_post_meta($product_id, '_product_data', true);
+}
+
+/**
+ * Retrieve and format product pricing data
+ * @param int $product_id WooCommerce product ID
+ * @return array|false Formatted pricing data or false on failure
+ */
+function blazecommerce_format_product_pricing($product_id) {
+    // Implementation
+}
+
+// Hook implementation
+add_action('woocommerce_single_product_summary', 'blazecommerce_add_custom_product_info', 25);
+```
+
+## CSS and Styling Standards
+
+### 1. Tailwind CSS Integration
+- Use Tailwind utility classes primarily
+- Create custom components for repeated patterns
+- Maintain responsive design principles
+- Follow mobile-first approach
+
+```css
+/* Good - Utility-first approach */
+.product-card {
+    @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow;
+}
+
+/* Avoid - Traditional CSS when Tailwind utilities exist */
+.product-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    /* ... */
+}
+```
+
+### 2. Custom CSS Guidelines
+- Use CSS custom properties for theme variables
+- Implement proper CSS organization
+- Follow BEM methodology for custom components
+- Ensure accessibility compliance
+
+### 3. Performance Considerations
+- Minimize custom CSS when Tailwind utilities suffice
+- Use CSS containment for performance
+- Implement critical CSS loading
+- Optimize for Core Web Vitals
+
+## JavaScript Standards
+
+### 1. Modern JavaScript
+- Use ES6+ features appropriately
+- Implement proper error handling
+- Follow WordPress JavaScript coding standards
+- Use jQuery only when necessary
+
+```javascript
+// Good - Modern JavaScript
+const productData = await fetchProductData(productId);
+
+// Avoid - Outdated patterns
+var productData;
+$.ajax({
+    // Old jQuery patterns
+});
+```
+
+### 2. WordPress Integration
+- Use WordPress JavaScript APIs
+- Implement proper localization
+- Follow WordPress script enqueueing practices
+- Use WordPress REST API for AJAX
+
+## Gutenberg Block Standards
+
+### Block.json Requirements
+```json
+{
+    "apiVersion": 3,
+    "name": "blazecommerce/block-name",
+    "title": "Block Display Name",
+    "category": "blazecommerce",
+    "icon": "dashicon-name",
+    "description": "Block description",
+    "keywords": ["relevant", "keywords"],
+    "textdomain": "blazecommerce",
+    "supports": {
+        "className": true, "anchor": true,
+        "spacing": {"padding": true, "margin": true},
+        "color": {"background": true, "text": true},
+        "typography": {"fontSize": true, "fontWeight": true},
+        "border": {"width": true, "style": true, "color": true, "radius": true}
+    },
+    "attributes": {
+        "uniqueId": {"type": "string", "default": ""},
+        "className": {"type": "string", "default": ""},
+        "backgroundColor": {"type": "string", "default": ""},
+        "textColor": {"type": "string", "default": ""},
+        "style": {"type": "object", "default": {}}
+    }
+}
+```
+
+### Block Registration
+```php
+// ✅ Proper registration
+function blazecommerce_register_blocks() {
+    register_block_type(__DIR__ . '/blocks/product-showcase');
+    add_filter('block_categories_all', 'blazecommerce_register_block_category');
+}
+
+function blazecommerce_register_block_category($categories) {
+    return array_merge($categories, array(
+        array('slug' => 'blazecommerce', 'title' => __('BlazeCommerce', 'blazecommerce'))
+    ));
+}
+
+// Unique ID generation
+function blazecommerce_render_block_with_id($attributes, $content, $block) {
+    if (empty($attributes['uniqueId'])) {
+        $attributes['uniqueId'] = 'blazecommerce-' . wp_generate_uuid4();
+    }
+    $wrapper_attributes = get_block_wrapper_attributes(array(
+        'id' => $attributes['uniqueId'],
+        'class' => 'blazecommerce-block'
+    ));
+    return sprintf('<div %1$s>%2$s</div>', $wrapper_attributes, $content);
+}
+```
+
+### Block Pattern Standards
+```php
+// ✅ Complete pattern registration
+function blazecommerce_register_block_patterns() {
+    register_block_pattern('blazecommerce/hero-with-products', array(
+        'title' => __('Hero Section with Products', 'blazecommerce'),
+        'description' => __('Hero banner with product showcase', 'blazecommerce'),
+        'content' => '<!-- wp:blazecommerce/hero-banner --><!-- /wp:blazecommerce/hero-banner -->',
+        'categories' => array('blazecommerce'),
+        'keywords' => array('hero', 'products'),
+        'viewportWidth' => 1200
+    ));
+}
+```
+
+### Internationalization & Accessibility
+```php
+// ✅ Internationalization
+function blazecommerce_render_product_block($attributes) {
+    return '<div class="product-block">' .
+           '<h3>' . __('Featured Products', 'blazecommerce') . '</h3>' .
+           '<button>' . __('View All Products', 'blazecommerce') . '</button>' .
+           '</div>';
+}
+
+// ✅ Accessibility compliance
+function blazecommerce_render_accessible_block($attributes, $content) {
+    $unique_id = $attributes['uniqueId'] ?? wp_generate_uuid4();
+    $wrapper_attributes = get_block_wrapper_attributes(array(
+        'id' => $unique_id,
+        'role' => 'region',
+        'aria-labelledby' => $unique_id . '-title'
+    ));
+    return sprintf('<div %s><h3 id="%s-title">%s</h3>%s</div>',
+        $wrapper_attributes, $unique_id,
+        esc_html($attributes['title'] ?? __('Block Content', 'blazecommerce')),
+        $content
+    );
+}
+```
+
+## Template Development
+
+### Template Standards
+- Follow WordPress template hierarchy
+- Override WooCommerce templates in `/woocommerce/` directory
+- Maintain compatibility with updates
+- Document customizations
+
+### FSE Integration
+```php
+// ✅ Template part registration
+function blazecommerce_register_template_parts() {
+    add_theme_support('block-template-parts');
+    register_block_pattern('blazecommerce/product-header', array(
+        'title' => __('Product Page Header', 'blazecommerce'),
+        'content' => '<!-- wp:template-part {"slug":"product-header"} /-->',
+        'categories' => array('header')
+    ));
+}
+```
+
+## Performance Standards
+
+### 1. Code Optimization
+- Minimize database queries
+- Use WordPress caching APIs
+- Implement lazy loading where appropriate
+- Optimize asset loading
+
+### 2. Asset Management
+- Properly enqueue scripts and styles
+- Use asset versioning for cache busting
+- Implement conditional loading
+- Minimize HTTP requests
+
+## Testing Requirements
+
+### 1. Manual Testing
+- Test across different devices and browsers
+- Verify accessibility compliance
+- Test with various WordPress/WooCommerce versions
+- Validate with different themes and plugins
+
+### 2. Code Validation
+- Use PHP_CodeSniffer with WordPress standards
+- Validate HTML output
+- Test CSS for cross-browser compatibility
+- Verify JavaScript functionality
+
+## Documentation Standards
+
+### 1. Code Documentation
+- Add PHPDoc comments for all functions
+- Document complex logic and algorithms
+- Include usage examples
+- Maintain changelog for significant changes
+
+### 2. README Requirements
+- Include installation instructions
+- Document configuration options
+- Provide troubleshooting guide
+- List compatibility requirements
+
+## Version Control Standards
+
+### 1. Commit Practices
+- Use conventional commit messages
+- Make atomic commits
+- Include descriptive commit messages
+- Reference issue numbers when applicable
+
+### 2. Branch Management
+- Use feature branches for development
+- Follow GitFlow or similar branching strategy
+- Maintain clean commit history
+- Use meaningful branch names
+
+## WordPress Child Theme Context
+
+These standards apply specifically to:
+- Theme customization and development
+- WooCommerce template overrides
+- Block pattern and template creation
+- Custom functionality implementation
+- Performance optimization
+- Accessibility compliance
+- Security implementation

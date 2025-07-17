@@ -1,0 +1,81 @@
+---
+type: "always_apply"
+priority: 1
+scope: "blazecommerce_child"
+---
+
+# Issue Documentation Requirements - BlazeCommerce Child Theme
+
+## 🚨 MANDATORY Documentation Tracking
+
+### ALWAYS Priority Requirements
+- **ALWAYS**: Document every change, prompt, or conversation in Augment for context preservation
+- **ALWAYS**: Test and validate all changes made through Augment interactions
+- **ALWAYS**: Record all AI-assisted development activities for institutional knowledge
+
+## 📋 Required Documentation
+
+### For Every Issue/Feature/Change
+1. **Problem Statement**: Clear description of issue or need
+2. **Solution Approach**: Detailed explanation of proposed solution
+3. **Implementation Details**: Technical specifications and requirements
+4. **Testing Plan**: How solution will be tested and validated
+5. **Documentation Updates**: What documentation needs creation/updates
+
+### Documentation Locations
+- **Issue Documentation**: `/.docs/issues/`
+- **Feature Documentation**: `/.docs/features/`
+- **Change Documentation**: `/.docs/changes/`
+- **Theme Documentation**: `/.docs/theme/`
+- **WordPress Documentation**: `/.docs/wordpress/`
+- **Summary Documents**: `/.docs/summaries/`
+- **Reports**: `/.docs/reports/`
+
+## 🔄 Mandatory Process
+
+### Before Starting Work
+1. Create issue documentation file in appropriate `/.docs/` directory
+2. Document problem statement and proposed solution
+3. Outline implementation approach and technical requirements
+4. Define testing criteria and acceptance criteria
+5. Identify all documentation requiring updates
+
+### During Development
+1. Update issue documentation with progress and changes
+2. Document deviations from original plan
+3. Record technical decisions or trade-offs
+4. Update relevant theme/WordPress documentation in real-time
+
+### Before Closing Issue
+1. Verify all documentation complete and accurate
+2. Test all code examples in documentation
+3. Update related documentation affected by changes
+
+## ✅ Quality Standards
+
+### Content Requirements
+- Clear, concise language
+- Step-by-step instructions where applicable
+- PHP code examples with proper syntax highlighting
+- Screenshots/diagrams for UI changes
+- Links to related documentation
+- Version information and dates
+
+### Format Standards
+- Markdown format for all documentation
+- Consistent heading structure (H1 for title, H2 for sections)
+- Table of contents for longer documents
+- Proper code block formatting with language specification
+- Cross-references to related documents
+
+## 🚫 Enforcement Rules
+
+### No Exceptions Policy
+- **Issues without proper documentation** will not be accepted
+- **Pull requests must include documentation updates**
+- **Code reviews must verify documentation completeness**
+- **No deployment without complete documentation**
+- **All summary documents must be in `/.docs/summaries/`**
+
+---
+**Priority**: ALWAYS | **Scope**: BlazeCommerce Child Theme | **Enforcement**: Mandatory
