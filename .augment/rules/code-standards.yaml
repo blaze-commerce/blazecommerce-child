@@ -1,5 +1,7 @@
 ---
 type: "agent_requested"
+priority: 1
+scope: "blazecommerce_child"
 description: "Code quality standards for WordPress child theme development"
 ---
 
