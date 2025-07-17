@@ -1,0 +1,52 @@
+---
+type: "always_apply"
+priority: 1
+scope: "blazecommerce_child"
+description: "Testing standards for BlazeCommerce child theme"
+---
+
+# Child Theme Testing Guidelines
+
+## Testing Strategy
+- **Manual Testing**: Visual testing across devices and browsers
+- **Functional Testing**: Test all theme functionality
+- **Compatibility Testing**: Test with parent theme updates
+- **Performance Testing**: Monitor loading times and optimization
+
+## Browser Testing
+- **Desktop Browsers**: Chrome, Firefox, Safari, Edge
+- **Mobile Browsers**: Mobile Chrome, Mobile Safari
+- **Responsive Testing**: Test across viewport sizes
+- **Cross-Browser Compatibility**: Ensure consistent behavior
+
+## WordPress Testing
+- **Theme Activation**: Test theme activation/deactivation
+- **Plugin Compatibility**: Test with common WordPress plugins
+- **WordPress Updates**: Test with WordPress core updates
+- **Multisite Testing**: Test multisite compatibility if applicable
+
+## WooCommerce Testing
+- **Product Pages**: Test product display and functionality
+- **Cart/Checkout**: Test e-commerce flow
+- **Payment Integration**: Test payment gateway compatibility
+- **Order Management**: Test order processing
+
+## Performance Testing
+- **Page Speed**: Monitor page load times
+- **Resource Loading**: Optimize CSS/JS loading
+- **Image Optimization**: Test image loading and optimization
+- **Caching**: Test with caching plugins
+
+## Visual Testing
+- **Design Consistency**: Ensure design matches specifications
+- **Typography**: Test font loading and rendering
+- **Layout Testing**: Test grid and layout systems
+- **Color Schemes**: Test theme color variations
+
+## Testing Checklist
+- [ ] Theme activates without errors
+- [ ] All templates render correctly
+- [ ] Responsive design works across devices
+- [ ] WooCommerce integration functional
+- [ ] Performance meets standards
+- [ ] Cross-browser compatibility verified

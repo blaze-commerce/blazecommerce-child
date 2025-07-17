@@ -1,0 +1,94 @@
+---
+type: "always_apply"
+priority: 1
+scope: "blazecommerce_child"
+description: "Comprehensive child theme development guidelines for BlazeCommerce"
+---
+
+# BlazeCommerce WordPress Child Theme Development Guidelines
+
+## General Principles
+
+### 1. Follow WordPress Theme Development Standards
+- Use WordPress PHP Coding Standards (WPCS) for all PHP code
+- Follow WordPress naming conventions for functions, classes, and variables
+- Use proper indentation (tabs for indentation, spaces for alignment)
+- Maximum line length of 120 characters
+- Maintain backward compatibility with parent theme
+- Document all public methods and classes
+
+### 2. Child Theme Architecture
+- Never modify parent theme files directly
+- Use child theme functions.php to extend functionality
+- Override parent theme templates by copying to child theme directory
+- Use proper WordPress hooks and filters for customizations
+- Implement theme customization through WordPress Customizer API
+
+### 3. Commit Guidelines
+- Follow conventional commit format: `type(scope): description`
+- Types: feat, fix, docs, style, refactor, test, chore
+- Include clear descriptions of theme changes
+- Test all changes across different devices and browsers
+- **MANDATORY**: All commits MUST include documentation updates
+
+### 4. Documentation-First Development Workflow
+**MANDATORY PROCESS**:
+1. **Before coding**: Create/update relevant documentation files in `/docs/`
+2. **During development**: Keep documentation updated with code changes
+3. **Before commit**: Verify all documentation is complete and accurate
+4. **No exceptions**: PRs without complete documentation will be rejected
+
+## Child Theme Specific Guidelines
+
+### 1. Functions.php Best Practices
+- Prefix all custom functions with `blazecommerce_child_`
+- Use conditional checks before defining functions
+- Organize functions into logical sections with comments
+- Enqueue styles and scripts properly using WordPress hooks
+- Never use `require_once` for WordPress core files
+
+### 2. Template Hierarchy
+- Follow WordPress template hierarchy
+- Use get_template_part() for reusable template parts
+- Implement proper fallbacks for missing templates
+- Use WordPress conditional tags appropriately
+- Maintain semantic HTML structure
+
+### 3. Styling Guidelines
+- Use CSS custom properties for theme variables
+- Follow BEM methodology for CSS class naming
+- Implement responsive design mobile-first
+- Use WordPress theme.json for global styles when possible
+- Optimize CSS for performance and maintainability
+
+## Block Patterns & Templates
+
+### 1. Block Pattern Development
+- Create reusable block patterns in `/patterns/` directory
+- Use semantic HTML structure in patterns
+- Implement proper accessibility attributes
+- Test patterns across different themes and contexts
+- Document pattern usage and customization options
+
+### 2. Template Development
+- Use block templates for consistent layouts
+- Implement proper template parts for reusability
+- Follow WordPress template hierarchy
+- Use WordPress hooks for template customization
+- Ensure templates are translation-ready
+
+## Security Best Practices
+
+### 1. Input Validation & Sanitization
+- Sanitize all user inputs using WordPress functions
+- Validate data types and formats before processing
+- Use nonces for form submissions and AJAX requests
+- Implement proper capability checks for admin functions
+- Escape all outputs using appropriate WordPress functions
+
+### 2. File Security
+- Prevent direct access to PHP files
+- Use proper file permissions (644 for files, 755 for directories)
+- Validate file uploads and restrict file types
+- Use WordPress filesystem API for file operations
+- Implement proper error handling and logging

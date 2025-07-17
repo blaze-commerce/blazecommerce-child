@@ -1,0 +1,46 @@
+---
+type: "always_apply"
+priority: 1
+scope: "blazecommerce_child"
+description: "Security guidelines for BlazeCommerce child theme development"
+---
+
+# Child Theme Security Guidelines
+
+## Credential Protection (CRITICAL)
+- **NEVER** commit API keys, tokens, passwords, or secrets to version control
+- Use WordPress options or constants for sensitive configuration
+- Use placeholder format: `[REPLACE_WITH_ACTUAL_VALUE_FROM_USER_CREDENTIALS]`
+- Validate all sensitive files are in .gitignore
+
+## WordPress Security Best Practices
+- **Input Sanitization**: Sanitize all user inputs using WordPress functions
+- **Output Escaping**: Escape all outputs using esc_html(), esc_attr(), etc.
+- **Nonce Verification**: Use nonces for form submissions
+- **Capability Checks**: Verify user permissions before actions
+
+## Theme Security
+- **File Permissions**: Proper file permissions (644 for files, 755 for directories)
+- **Direct Access**: Prevent direct access to PHP files
+- **SQL Injection**: Use WordPress database functions (wpdb)
+- **XSS Prevention**: Escape all dynamic content
+
+## Function Security
+- **Prefix Functions**: Prefix all functions to avoid conflicts
+- **Conditional Loading**: Check if functions exist before defining
+- **Error Handling**: Implement proper error handling
+- **Validation**: Validate all function parameters
+
+## Template Security
+- **Data Validation**: Validate all template data
+- **Secure Includes**: Use secure file inclusion methods
+- **User Input**: Never trust user input in templates
+- **Database Queries**: Use prepared statements
+
+## Security Checklist
+- [ ] No credentials in code/documentation
+- [ ] All inputs sanitized
+- [ ] All outputs escaped
+- [ ] Nonces implemented for forms
+- [ ] User capabilities checked
+- [ ] Functions properly prefixed

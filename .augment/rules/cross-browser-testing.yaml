@@ -1,0 +1,72 @@
+---
+type: "always_apply"
+priority: 1
+scope: "blazecommerce_child"
+description: "Cross-browser testing guidelines for WordPress child theme development"
+---
+
+# Child Theme Cross-Browser Testing Guidelines
+
+## Theme Compatibility Testing
+
+### 1. Browser Support Matrix
+- **Desktop**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
+- **Mobile**: Mobile Chrome, Mobile Safari, Samsung Internet
+- **Testing Priority**: Chrome > Safari > Firefox > Edge
+- **Legacy Considerations**: Graceful degradation for older browsers
+
+### 2. WordPress Admin Testing
+- **Admin Interface**: Test theme customizer across browsers
+- **Block Editor**: Test Gutenberg block editor compatibility
+- **Media Library**: Verify media library functionality
+- **Theme Options**: Test theme option panels
+
+## Frontend Theme Testing
+
+### 1. Layout Testing
+- **CSS Grid/Flexbox**: Test modern CSS layout features
+- **Responsive Design**: Test responsive breakpoints
+- **Typography**: Test font rendering across browsers
+- **Color Accuracy**: Verify color consistency
+
+### 2. Interactive Elements
+- **Navigation Menus**: Test dropdown and mobile menus
+- **Forms**: Test contact forms and search functionality
+- **Animations**: Test CSS animations and transitions
+- **JavaScript**: Test theme JavaScript functionality
+
+## WooCommerce Integration Testing
+
+### 1. E-commerce Features
+- **Product Pages**: Test product display across browsers
+- **Cart Functionality**: Test add to cart and checkout
+- **Payment Forms**: Test payment gateway integration
+- **Order Process**: Test complete order workflow
+
+### 2. Mobile Commerce
+- **Mobile Checkout**: Test mobile checkout process
+- **Touch Interactions**: Test touch-friendly elements
+- **Mobile Performance**: Monitor mobile page performance
+- **Responsive Tables**: Test responsive product tables
+
+## Performance Across Browsers
+
+### 1. Loading Performance
+- **Page Speed**: Test page load times across browsers
+- **Resource Loading**: Monitor CSS/JS loading performance
+- **Image Loading**: Test image optimization across browsers
+- **Caching**: Test browser caching behavior
+
+### 2. Runtime Performance
+- **JavaScript Performance**: Test JS execution across browsers
+- **CSS Rendering**: Monitor CSS rendering performance
+- **Memory Usage**: Test memory usage in different browsers
+- **Battery Impact**: Consider mobile battery impact
+
+## Testing Checklist
+- [ ] Theme displays correctly in all supported browsers
+- [ ] WooCommerce functionality works across browsers
+- [ ] Mobile experience consistent
+- [ ] Performance acceptable on all browsers
+- [ ] Admin interface functional
+- [ ] No JavaScript errors in any browser

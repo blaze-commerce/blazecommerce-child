@@ -1,0 +1,46 @@
+---
+type: "always_apply"
+priority: 1
+scope: "blazecommerce_child"
+description: "WordPress child theme architecture guidelines for BlazeCommerce"
+---
+
+# BlazeCommerce Child Theme Architecture
+
+## Theme Structure
+- **Parent Theme**: Astra or compatible WordPress theme
+- **Child Theme**: blazecommerce-child1 (active theme)
+- **Framework**: WordPress theme development standards
+- **Styling**: Custom CSS with theme.json configuration
+- **Functionality**: PHP functions and WordPress hooks
+
+## Directory Structure
+```
+├── functions.php       # Main theme functions
+├── style.css          # Theme stylesheet
+├── theme.json         # Theme configuration
+├── templates/         # Block templates
+├── template-parts/    # Template parts
+├── patterns/          # Block patterns
+├── parts/            # Custom theme parts
+├── woocommerce/      # WooCommerce template overrides
+└── assets/           # Theme assets
+```
+
+## Development Principles
+- **Child Theme Safety**: Never modify parent theme files
+- **Hook-Based**: Use WordPress hooks and filters
+- **Compatibility**: Maintain compatibility with parent theme updates
+- **Performance**: Optimize for fast loading times
+
+## Customization Strategy
+- **Functions.php**: Add custom functionality
+- **Template Overrides**: Override parent theme templates
+- **Block Patterns**: Create custom block patterns
+- **WooCommerce**: Customize WooCommerce templates
+
+## Integration Points
+- **BlazeCommerce Plugin**: Integrate with custom plugin functionality
+- **WooCommerce**: E-commerce functionality
+- **Block Editor**: Gutenberg block support
+- **Frontend**: Coordinate with Next.js frontend when applicable

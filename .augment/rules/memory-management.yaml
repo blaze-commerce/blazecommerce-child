@@ -1,0 +1,64 @@
+---
+type: "always_apply"
+priority: 1
+scope: "blazecommerce_child"
+description: "Memory management guidelines for WordPress child theme development"
+---
+
+# Child Theme Memory Management Guidelines
+
+## Theme Performance Optimization
+
+### 1. Asset Loading
+- **Conditional Loading**: Load assets only when needed
+- **Script Dependencies**: Properly declare script dependencies
+- **CSS Optimization**: Minimize and optimize CSS files
+- **Image Optimization**: Optimize theme images and icons
+
+### 2. Function Efficiency
+- **Efficient Queries**: Use efficient WordPress queries
+- **Caching**: Implement caching for expensive operations
+- **Hook Optimization**: Optimize hook callbacks for performance
+- **Memory Usage**: Monitor memory usage in theme functions
+
+## WordPress Theme Memory Management
+
+### 1. Template Optimization
+- **Template Hierarchy**: Use efficient template hierarchy
+- **Loop Optimization**: Optimize WordPress loops
+- **Query Optimization**: Use WP_Query efficiently
+- **Conditional Loading**: Load templates conditionally
+
+### 2. Customizer Performance
+- **Selective Refresh**: Use selective refresh for customizer controls
+- **Preview Optimization**: Optimize customizer preview performance
+- **Setting Storage**: Efficiently store and retrieve theme settings
+- **JavaScript Optimization**: Optimize customizer JavaScript
+
+## Child Theme Specific Considerations
+
+### 1. Parent Theme Integration
+- **Inheritance Efficiency**: Efficiently inherit from parent theme
+- **Override Optimization**: Optimize template overrides
+- **Function Conflicts**: Avoid function conflicts with parent theme
+- **Resource Sharing**: Share resources efficiently with parent theme
+
+### 2. Customization Performance
+- **Custom Functions**: Write efficient custom functions
+- **Hook Usage**: Use hooks efficiently without performance impact
+- **Database Queries**: Minimize database queries in theme code
+- **Caching Integration**: Integrate with WordPress caching systems
+
+## Performance Monitoring
+
+### 1. Theme Performance
+- **Page Load Times**: Monitor page load performance
+- **Resource Usage**: Track CSS and JavaScript resource usage
+- **Database Impact**: Monitor database query impact
+- **Memory Profiling**: Profile theme memory usage
+
+### 2. Optimization Techniques
+- **Lazy Loading**: Implement lazy loading for theme elements
+- **Critical CSS**: Implement critical CSS loading
+- **Resource Hints**: Use resource hints for performance
+- **Caching Strategy**: Implement effective caching strategy
