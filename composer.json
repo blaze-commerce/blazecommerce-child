@@ -1,0 +1,30 @@
+{
+    "name": "blaze-commerce/blazecommerce-child-theme",
+    "description": "BlazeCommerce Child Theme - Development dependencies for code quality",
+    "type": "wordpress-theme",
+    "license": "GPL-2.0-or-later",
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.7",
+        "wp-coding-standards/wpcs": "^3.0",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "scripts": {
+        "install-standards": [
+            "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs,vendor/phpcompatibility/phpcompatibility-wp"
+        ],
+        "lint": [
+            "phpcs --standard=WordPress --extensions=php --ignore=*/vendor/*,*/node_modules/*,*/class-tgm-plugin-activation.php ."
+        ],
+        "lint-fix": [
+            "phpcbf --standard=WordPress --extensions=php --ignore=*/vendor/*,*/node_modules/*,*/class-tgm-plugin-activation.php ."
+        ]
+    }
+}

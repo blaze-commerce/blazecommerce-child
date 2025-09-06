@@ -1,0 +1,62 @@
+{
+  "name": "blazecommerce-child-theme",
+  "version": "1.0.1",
+  "description": "BlazeCommerce Child Theme - High-performance WordPress child theme for WooCommerce stores",
+  "main": "functions.php",
+  "scripts": {
+    "version:patch": "npm version patch --no-git-tag-version && npm run update-version",
+    "version:minor": "npm version minor --no-git-tag-version && npm run update-version",
+    "version:major": "npm version major --no-git-tag-version && npm run update-version",
+    "update-version": "node scripts/update-version.js",
+    "changelog": "node scripts/update-changelog.js",
+    "prepare-release": "npm run changelog && git add .",
+    "test": "phpunit --configuration phpunit.xml",
+    "test:watch": "phpunit --configuration phpunit.xml --watch",
+    "test:coverage": "phpunit --configuration phpunit.xml --coverage-html coverage",
+    "lint:php": "phpcs --standard=WordPress .",
+    "lint:php:fix": "phpcbf --standard=WordPress .",
+    "lint:css": "stylelint 'src/css/**/*.css' 'style.css'",
+    "lint:css:fix": "stylelint 'src/css/**/*.css' 'style.css' --fix",
+    "lint": "npm run lint:php && npm run lint:css",
+    "lint:fix": "npm run lint:php:fix && npm run lint:css:fix",
+    "build": "echo 'No build process required for WordPress theme'",
+    "validate": "node scripts/validate-theme.js",
+    "validate:phpcs": "node scripts/test-phpcs-config.js",
+    "zip": "node scripts/create-zip.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blaze-commerce/blazecommerce-child.git"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "child-theme",
+    "woocommerce",
+    "blazecommerce",
+    "ecommerce",
+    "twentytwentyfive"
+  ],
+  "author": "Blaze Commerce",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/blaze-commerce/blazecommerce-child/issues"
+  },
+  "homepage": "https://www.blazecommerce.io",
+  "devDependencies": {
+    "semver": "^7.5.4",
+    "js-yaml": "^4.1.0",
+    "archiver": "^6.0.1",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

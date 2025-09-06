@@ -876,7 +876,6 @@ button.woocommerce-Button.woocommerce-button.button.woocommerce-form-register__s
     padding: 8px 16px;
     justify-content: center;
     align-items: center;
-    border-radius: 0px;
     border-radius: 4px;
     background: #000000;
     box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.08) inset, 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
@@ -980,7 +979,6 @@ div#notice-heading h5 {
     padding: 8px 16px;
     justify-content: center;
     align-items: center;
-    border-radius: 0px;
     border-radius: 4px;
     background: #000000;
     box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.08) inset, 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
