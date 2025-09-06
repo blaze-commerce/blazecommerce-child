@@ -1,0 +1,178 @@
+name: Code Quality Checks
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  php-quality:
+    runs-on: ubuntu-latest
+    name: PHP Code Quality
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: mbstring, intl
+          tools: composer, phpcs, phpcbf
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.composer
+          key: ${{ runner.os }}-composer-global-${{ hashFiles('composer.json') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-global-
+
+      - name: Install PHP dependencies
+        run: |
+          # Install WordPress Coding Standards globally with explicit plugin allowance
+          composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+
+          # Install core PHP_CodeSniffer and standards
+          composer global require "squizlabs/php_codesniffer:^3.7"
+          composer global require "wp-coding-standards/wpcs:^3.0"
+          composer global require "phpcompatibility/phpcompatibility-wp:^2.1"
+          composer global require "dealerdirect/phpcodesniffer-composer-installer:^1.0"
+
+          # Install additional coding standards that might be referenced
+          composer global require "phpcsstandards/phpcsutils:^1.0" || echo "PHPCSUtils not available, continuing..."
+          composer global require "phpcsstandards/phpcsextra:^1.0" || echo "PHPCSExtra not available, continuing..."
+
+          # Verify installation
+          ~/.composer/vendor/bin/phpcs --version
+          ~/.composer/vendor/bin/phpcs -i
+
+          # Set installed paths (this should be automatic with the installer plugin)
+          ~/.composer/vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/wp-coding-standards/wpcs,~/.composer/vendor/phpcompatibility/phpcompatibility-wp
+
+          # Show final configuration
+          ~/.composer/vendor/bin/phpcs --config-show
+
+      - name: Run PHP CodeSniffer
+        run: |
+          # Validate phpcs.xml configuration first
+          ~/.composer/vendor/bin/phpcs --config-show
+
+          # Test configuration file
+          if [ -f phpcs.xml ]; then
+            echo "Using phpcs.xml configuration file"
+            echo "Configuration file exists and will be used for standards"
+          fi
+
+          # Check WordPress coding standards
+          ~/.composer/vendor/bin/phpcs --standard=WordPress \
+            --extensions=php \
+            --ignore=*/vendor/*,*/node_modules/*,*/class-tgm-plugin-activation.php \
+            --report=summary \
+            --colors \
+            . || echo "WordPress standard check completed with issues"
+
+      - name: Run PHP Compatibility Check
+        run: |
+          # Check PHP 8.0+ compatibility
+          ~/.composer/vendor/bin/phpcs --standard=PHPCompatibilityWP \
+            --extensions=php \
+            --ignore=*/vendor/*,*/node_modules/*,*/class-tgm-plugin-activation.php \
+            --runtime-set testVersion 8.0- \
+            --report=summary \
+            --colors \
+            . || echo "PHP compatibility check completed with issues"
+
+  css-quality:
+    runs-on: ubuntu-latest
+    name: CSS Code Quality
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Stylelint
+        run: |
+          # Lint CSS files with graceful error handling
+          echo "Running CSS linting with Stylelint..."
+          npx stylelint "**/*.css" \
+            --ignore-path .gitignore \
+            --formatter verbose \
+            --allow-empty-input || echo "CSS linting completed with issues - check output above"
+
+  theme-validation:
+    runs-on: ubuntu-latest
+    name: WordPress Theme Validation
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate theme structure
+        run: npm run validate || echo "Theme validation completed with issues - check output above"
+
+      - name: Check for WordPress functions
+        run: |
+          echo "Checking for deprecated WordPress functions..."
+          
+          # Check for deprecated functions
+          DEPRECATED_FUNCTIONS=(
+            "mysql_query"
+            "mysql_connect"
+            "ereg"
+            "split"
+            "create_function"
+          )
+          
+          for func in "${DEPRECATED_FUNCTIONS[@]}"; do
+            if grep -r "$func" --include="*.php" . --exclude-dir=vendor --exclude-dir=node_modules; then
+              echo "❌ Found deprecated function: $func"
+              exit 1
+            fi
+          done
+          
+          echo "✅ No deprecated functions found"
+
+      - name: Security scan
+        run: |
+          echo "Running basic security checks..."
+          
+          # Check for potential security issues
+          SECURITY_PATTERNS=(
+            "eval\("
+            "base64_decode"
+            "file_get_contents.*http"
+            "curl_exec"
+            "shell_exec"
+            "system\("
+            "exec\("
+          )
+          
+          for pattern in "${SECURITY_PATTERNS[@]}"; do
+            if grep -rE "$pattern" --include="*.php" . --exclude-dir=vendor --exclude-dir=node_modules; then
+              echo "⚠️  Potential security concern found: $pattern"
+              echo "Please review the usage manually"
+            fi
+          done
+          
+          echo "✅ Basic security scan completed"

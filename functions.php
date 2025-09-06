@@ -1,5 +1,8 @@
 <?php
 
+// Theme version constant
+define( 'BLAZECOMMERCE_CHILD_VERSION', '1.0.1' );
+
 // Enqueue parent and child theme styles
 add_action('wp_enqueue_scripts', 'blaze_theme_enqueue_styles');
 function blaze_theme_enqueue_styles() {
